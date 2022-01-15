@@ -44,12 +44,13 @@ class CategoryController extends Controller
         $messages = [
             'namecate.required'    => 'Le champ Nom ne peut etre vide.',
             'namecate.unique'    => 'Le champ Nom existe dans notre base de donnee.',
-            'max'    => 'ne dois pas depasser les 255 caractere',
+            'namecate.max'    => 'ne dois pas depasser les 255 caractere',
+            'namecate.min'    => 'ne dois pas inferieur a 4 caractere',
         ];
 
         //verification et envoie des message
         $request->validate([
-            'namecate' => 'required|unique:categories|max:255',
+            'namecate' => 'required|unique:categories|min:4|max:255',
         ],$messages);
 
         //insertion de nouvelle de donnee
@@ -97,7 +98,8 @@ class CategoryController extends Controller
         $messages = [
             'namecate.required'    => 'Le champ Nom ne peut etre vide.',
             'namecate.unique'    => 'Le champ Nom existe dans notre base de donnee.',
-            'max'    => 'ne dois pas depasser les 255 caractere',
+            'namecate.max'    => 'ne dois pas depasser les 255 caractere',
+            'namecate.min'    => 'ne dois pas inferieur a 4 caractere',
         ];
 
 
@@ -115,7 +117,7 @@ class CategoryController extends Controller
         }else{
             //verification et envoie des message
             $request->validate([
-                'namecate' => 'required|unique:categories|max:255',
+                'namecate' => 'required|unique:categories|min:4|max:255',
             ],$messages);
 
             //on fait la mise a jours de tous les elements
