@@ -31,13 +31,10 @@
    <body>
 
 
-<style media="screen">
-  .navbar{
-    background-color: transparent;
-  }
-</style>
 
 
+
+<<<<<<< HEAD
      <nav class="navbar navbar-expand-lg Navbar-default">
        <a class="navbar-brand" href="#">Navbar</a>
        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,32 +63,49 @@
          </ul>
        </div>
      </nav>
+=======
+<div class="container">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="{{route('homeview')}}">
+            <img src="{{asset('assets/images/logo.png')}}">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{route('homeview')}}">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+</div>
+>>>>>>> parent of ad6e829 (mise a jour de GitIgnore)
 
 
 
       <!-- banner bg main start -->
-      <div class="banner_bg_main">
+      <div class="banner_bg_main" style="background-image: url({{asset('assets/images/banner-bg.png')}});">
          <!-- header top section start -->
 
          <!-- header top section start -->
          <!-- logo section start -->
-         <div class="logo_section">
-            <div class="container">
-               <div class="row">
-                  <div class="col-sm-12">
-                     <div class="logo"><a href="index.html"><img src="{{asset('assets/images/logo.png')}}"></a></div>
-                  </div>
-               </div>
-            </div>
-         </div>
+
          <!-- logo section end -->
          <!-- header section start -->
-         <div class="header_section">
+
+         <div class="header_section" style="margin-top: 100px;margin-bottom: -30px;">
             <div class="container">
                <div class="containt_main">
 
                  <!-- Example split danger button -->
-
 
                  <div class="btn-group hidden-lg d-block d-none d-sm-block d-md-block d-sm-none d-md-none d-lg-none">
                    <button type="button" class="btn btn-dark dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -99,41 +113,42 @@
                    </button>
                    <div class="dropdown-menu">
                      @foreach ($cateliste as $cate)
-                           <a class="dropdown-item" href="{{$cate->id}}">{{$cate->namecate}}</a>
+                           <a class="dropdown-item" href="{{route('searchdata',$cate->id)}}">{{$cate->namecate}}</a>
                      @endforeach
                    </div>
                  </div>
 
-
                   <div class="dropdown">
                      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All Category
                      </button>
-
-
-
                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
                         @foreach ($cateliste as $cate)
-                              <a class="dropdown-item" href="{{$cate->id}}">{{$cate->namecate}}</a>
+                              <a class="dropdown-item" href="{{route('searchdata',$cate->id)}}">{{$cate->namecate}}</a>
                         @endforeach
 
                      </div>
                   </div>
                   <div class="main">
                      <!-- Another variation with a button -->
+                      <form action="{{route('searchview')}}" method="post">
+                          @csrf
                      <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search this blog">
+                        <input type="text" class="form-control" placeholder="Search this blog" name="search">
                         <div class="input-group-append">
-                           <button class="btn btn-secondary" type="button" style="background-color: #f26522; border-color:#f26522 ">
+                           <button class="btn btn-secondary" type="submit" style="background-color: #f26522; border-color:#f26522 ">
                            <i class="fa fa-search"></i>
                            </button>
                         </div>
                      </div>
+                      </form>
                   </div>
 
                </div>
             </div>
          </div>
+
+
          <!-- header section end -->
          <!-- banner section start -->
          <div class="banner_section layout_padding">
@@ -206,28 +221,26 @@
       <!-- footer section start -->
       <div class="footer_section layout_padding">
          <div class="container">
-            <div class="footer_logo"><a href="index.html"><img src="{{asset('assets/images/footer-logo.png')}}"></a></div>
-            <div class="input_bt">
+            <div class="footer_logo" style="margin-bottom: -1%"><a href="{{route('homeview')}}"><img src="{{asset('assets/images/footer-logo.png')}}"></a></div>
+            <div class="input_bt" style="margin-bottom: -1%">
                <input type="text" class="mail_bt" placeholder="Your Email" name="Your Email">
                <span class="subscribe_bt" id="basic-addon2"><a href="#">Subscribe</a></span>
             </div>
-            <div class="footer_menu">
+            <div class="footer_menu" style="margin-bottom: -5%">
                <ul>
                   <li><a href="#">Best Sellers</a></li>
-                  <li><a href="#">Gift Ideas</a></li>
-                  <li><a href="#">New Releases</a></li>
                   <li><a href="#">Today's Deals</a></li>
                   <li><a href="#">Customer Service</a></li>
                </ul>
             </div>
-            <div class="location_main">Help Line  Number : <a href="#">+1 1800 1200 1200</a></div>
+            <div class="location_main" style="margin-bottom: -4%">Help Line  Number : <a href="#">+1 1800 1200 1200</a></div>
          </div>
       </div>
       <!-- footer section end -->
       <!-- copyright section start -->
       <div class="copyright_section">
          <div class="container">
-            <p class="copyright_text">© 2020 All Rights Reserved. Design by <a href="https://html.design">Free html  Templates</a></p>
+            <p class="copyright_text">© 2022 All Rights Reserved. Design by <a href="https://html.design">Free html  Templates</a></p>
          </div>
       </div>
       <!-- copyright section end -->

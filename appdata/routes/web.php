@@ -17,5 +17,24 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', 'App\Http\Controllers\PublicController@index')->name('homeview');
-Route::get('/about', 'App\Http\Controllers\PublicController@about')->name('homeview');
+ Route::get('/','App\Http\Controllers\HomepagesController@index')->name('homepage');
+ Route::get('about','App\Http\Controllers\HomepagesController@about')->name('aboutpage');
+ Route::get('contact','App\Http\Controllers\HomepagesController@contact')->name('contactpage');
+
+
+Route::get('Admin','App\Http\Controllers\DashboardController@index')->name('adminpage');
+
+Route::resource('category', 'App\Http\Controllers\CategoryController')->names([
+    'index'=> 'listecate',
+    'show'=> 'showcate',
+    'create'=> 'newcate',
+    'store'=> 'insertcate',
+    'edit'=>'editcate',
+    'update'=> 'updeditcate',
+    'destroy'=> 'delcate'
+]);
+
+Route::get('/delcategory','App\Http\Controllers\CategoryController@sofderestore')->name('restaudelete');
+Route::get('/restoredestroy/{id}','App\Http\Controllers\CategoryController@restoredestroy')->name('restoredelecate');
+Route::delete('/destoredefinitely/{id}','App\Http\Controllers\CategoryController@destoredefinitely')->name('deletecompletecate');
+

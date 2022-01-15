@@ -1,0 +1,28 @@
+notre projet
+
+nous allons utiliser des clef etranger
+nous allons utiliser les relations eloquent
+nous allons utiliser blade comme vue
+nous allons utiliser un dashbord pour les ajouts de nouveau elements
+nous allons utiliser un template modifier
+nous allons utiliser les convention basic
+--------insert / update / delete / create
+--------jointure / LIKE /
+--------login / forget password
+--------3 pages (Contact / about / index)
+--------dashbord (Utilisateur / produits / categories / prix / newletter / edition des pages via le dash)
+
+nous allons commencer par le dash pour plus rapides dans la stucture de notre base
+....au fure a mesure nous avansons nous allons creer les structure des tables
+
+nous allons mettre en place les termes Commencons
+
+avec les vues
+
+
+
+nous lancons la creation des categories
+
+nous allons travailler les vues de la dash
+
+nous avons terminer avec le categories completement...New/Insert/Update/Sup soft / restaure / Delete

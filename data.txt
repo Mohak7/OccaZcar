@@ -1,0 +1,84 @@
+
+Database de Laravel
+
+les colonne que laravel ajoute
+automatique dans nos tables 
+sont
+---created_at
+---updated_at
+---deleted_at
+
+
+===============================================
+category (Une voiture/Motocyclette)
+===============================================
+id
+namecate (Nom de categorie)
+status
+
+
+===============================================
+Product
+===============================================
+id
+idcate (id de categorie) (clef etranger)
+Marques
+images (fais referance au Logo des voitures)
+Model
+idcolor (clef etranger)
+Details 
+---consommation (carburant ou electrique )
+---Typecarburant (Essence / Diesel / GPL)
+---Type de Transmission (Boite Manuelle Ou Automatique)
+---Nombre de sieges
+---Nombre de vitesse
+---Puissance Moteur
+---Nombre de Clylindre
+---type de chassis
+---Nombre de Km (NULL/0 c'est neuve )
+---Nbrportieretxt (Le nombre de portieres pour les voiture en lettre)
+---Nbrportiereno (Le nombre de portieres pour les voiture en chiffre)
+---Anne de la voiture
+details plus
+status
+
+
+===============================================
+Productprice
+===============================================
+id
+idprod(id des voiture) (clef etranger)
+priceproduc
+tca (taxe par voiture)
+status
+
+
+===============================================
+ProductCouleur
+===============================================
+id
+Couleurproduc
+status
+
+
+===============================================
+Utilisateur
+===============================================
+id
+email
+Username
+pwd
+Lastname
+firstname
+avatar
+roles
+status
+
+
+
+
+FTP Username	epiz_30736647
+FTP Password
+llwbDXtUxcESVlJ
+FTP Hostname	ftpupload.net
+FTP Port (optional)	21
