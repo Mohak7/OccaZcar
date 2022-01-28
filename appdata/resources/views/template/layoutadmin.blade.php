@@ -17,6 +17,7 @@
     <link href="{{asset('massets/lib/font-awesome/css/font-awesome.css')}}" rel="stylesheet" />
     <!-- Custom styles for this template -->
     <link href="{{asset('massets/css/style.css')}}" rel="stylesheet">
+    <link href="{{asset('massets/css/styles.css')}}" rel="stylesheet">
     <link href="{{asset('massets/css/style-responsive.css')}}" rel="stylesheet">
 
 </head>
@@ -230,6 +231,7 @@
 <script src="{{asset('massets/lib/jquery.nicescroll.js')}}" type="text/javascript"></script>
 <!--common script for all pages-->
 <script src="{{asset('massets/lib/common-scripts.js')}}"></script>
+<script src="{{asset('massets/js/viewer.js')}}"></script>
 <!--script for this page-->
 
 </body>

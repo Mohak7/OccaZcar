@@ -8,6 +8,19 @@ if(!function_exists('photovoiturehelp')){
     }
 }
 
+//liste
+if(!function_exists('carburanhelp')){
+    function carburanhelp(){
+        $array = [
+            "1" => "Essence",
+            "2" => "Diesel",
+            "3" => "GPL",
+        ];
+        return $array;
+
+    }
+}
+
 
 
 
