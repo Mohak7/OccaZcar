@@ -5,7 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\ProductCouleur;
 use App\Models\Category;
-class ProductFactory extends Factory
+class ProduitsFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -35,15 +35,10 @@ class ProductFactory extends Factory
        )),
         'modele'=> $this->faker->numberBetween($min = 1000, $max = 9000),
 
-        'images_1' => '',
-        'images_2'=> '',
-        'images_3'=> '',
-        'images_4'=> '',
-        'images_5'=> '',
-        'images_6'=> '',
+        //'photoproduits_id'=> Photoproduits::all()->random(),,
 
-
-        'productcouleur_id' => ProductCouleur::all()->random(),
+        //'productcouleur_id' => ProductCouleur::all()->random(),
+        'productcouleur_id'  => Productcouleur::all()->random(),
 
         'consommation'=> $this->faker->randomElement($array = array('Electrique','Moteur')),
         'carburant' =>$this->faker->randomElement($array = array('Essence','Diesel','GPL')),

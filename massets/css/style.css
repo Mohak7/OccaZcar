@@ -3484,3 +3484,9 @@ ul.chat-available-user li a:hover {
 #copyrights a {
   color: #fff;
 }
+
+
+.badgescoloradd{
+  color: #fff;
+background-color: #000000;
+}

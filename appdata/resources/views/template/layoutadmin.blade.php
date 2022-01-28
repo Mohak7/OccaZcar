@@ -78,8 +78,8 @@
                         <span>Produits</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="general.html">Liste</a></li>
-                        <li><a href="buttons.html">Search</a></li>
+                        <li><a href="{{route('listeprod')}}">Liste</a></li>
+                        <li><a href="#">Search</a></li>
                     </ul>
                 </li>
 

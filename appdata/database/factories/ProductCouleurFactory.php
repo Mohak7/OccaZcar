@@ -14,7 +14,8 @@ class ProductCouleurFactory extends Factory
     public function definition()
     {
         return [
-          'couleurproduc' => $this->faker->randomElement($array = array('rouge','Jaune','Noir','Blanc')),
+          'nameprodcolor' => $this->faker->randomElement($array = array('rouge','Jaune','Noir','Blanc')),
+          'codecolor' => $this->faker->randomElement($array = array('red','yellow','black','#ffff')),
           'status' => '1',
         ];
     }

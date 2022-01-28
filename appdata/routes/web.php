@@ -24,6 +24,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('Admin','App\Http\Controllers\DashboardController@index')->name('adminpage');
 
+//debut les routes de categorie
 Route::resource('category', 'App\Http\Controllers\CategoryController')->names([
     'index'=> 'listecate',
     'show'=> 'showcate',
@@ -37,4 +38,17 @@ Route::resource('category', 'App\Http\Controllers\CategoryController')->names([
 Route::get('/delcategory','App\Http\Controllers\CategoryController@sofderestore')->name('restaudelete');
 Route::get('/restoredestroy/{id}','App\Http\Controllers\CategoryController@restoredestroy')->name('restoredelecate');
 Route::delete('/destoredefinitely/{id}','App\Http\Controllers\CategoryController@destoredefinitely')->name('deletecompletecate');
+//fin les routes de categorie
 
+//debut les routes de produits
+Route::resource('produits', 'App\Http\Controllers\ProduitsController')->names([
+    'index'=> 'listeprod',
+    'show'=> 'showprod',
+    'create'=> 'newprod',
+    'store'=> 'insertprod',
+    'edit'=>'editprod',
+    'update'=> 'updeditprod',
+    'destroy'=> 'delprod'
+]);
+
+//fin les routes de produits

@@ -7,6 +7,7 @@
       <sourceFolder url="file://$MODULE_DIR$/appdata/tests" isTestSource="true" packagePrefix="Tests\" />
       <sourceFolder url="file://$MODULE_DIR$/appdata/database/factories" isTestSource="false" packagePrefix="Database\Factories\" />
       <excludeFolder url="file://$MODULE_DIR$/appdata/vendor/asm89/stack-cors" />
+      <excludeFolder url="file://$MODULE_DIR$/appdata/vendor/barryvdh/laravel-debugbar" />
       <excludeFolder url="file://$MODULE_DIR$/appdata/vendor/brick/math" />
       <excludeFolder url="file://$MODULE_DIR$/appdata/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/appdata/vendor/dflydev/dot-access-data" />
@@ -35,6 +36,7 @@
       <excludeFolder url="file://$MODULE_DIR$/appdata/vendor/league/config" />
       <excludeFolder url="file://$MODULE_DIR$/appdata/vendor/league/flysystem" />
       <excludeFolder url="file://$MODULE_DIR$/appdata/vendor/league/mime-type-detection" />
+      <excludeFolder url="file://$MODULE_DIR$/appdata/vendor/maximebf/debugbar" />
       <excludeFolder url="file://$MODULE_DIR$/appdata/vendor/mockery/mockery" />
       <excludeFolder url="file://$MODULE_DIR$/appdata/vendor/monolog/monolog" />
       <excludeFolder url="file://$MODULE_DIR$/appdata/vendor/myclabs/deep-copy" />
@@ -87,6 +89,7 @@
       <excludeFolder url="file://$MODULE_DIR$/appdata/vendor/swiftmailer/swiftmailer" />
       <excludeFolder url="file://$MODULE_DIR$/appdata/vendor/symfony/console" />
       <excludeFolder url="file://$MODULE_DIR$/appdata/vendor/symfony/css-selector" />
+      <excludeFolder url="file://$MODULE_DIR$/appdata/vendor/symfony/debug" />
       <excludeFolder url="file://$MODULE_DIR$/appdata/vendor/symfony/deprecation-contracts" />
       <excludeFolder url="file://$MODULE_DIR$/appdata/vendor/symfony/error-handler" />
       <excludeFolder url="file://$MODULE_DIR$/appdata/vendor/symfony/event-dispatcher" />

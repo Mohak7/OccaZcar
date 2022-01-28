@@ -113,6 +113,9 @@
       <path value="$PROJECT_DIR$/appdata/vendor/composer" />
       <path value="$PROJECT_DIR$/appdata/vendor/dragonmantank/cron-expression" />
       <path value="$PROJECT_DIR$/appdata/vendor/nesbot/carbon" />
+      <path value="$PROJECT_DIR$/appdata/vendor/maximebf/debugbar" />
+      <path value="$PROJECT_DIR$/appdata/vendor/barryvdh/laravel-debugbar" />
+      <path value="$PROJECT_DIR$/appdata/vendor/symfony/debug" />
     </include_path>
   </component>
   <component name="PhpUnit">
