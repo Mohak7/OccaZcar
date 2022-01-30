@@ -44,13 +44,12 @@ class ProduitsFactory extends Factory
         'carburant' =>$this->faker->randomElement($array = array('Essence','Diesel','GPL')),
         'transmission' => $this->faker->randomElement($array = array('Boite Manuelle', 'Automatique')),
         'nbrsierge' => $this->faker->randomElement($array = array('4','6')),
-        'nbrvitesse' => $this->faker->randomElement($array = array('4','5')),
+        'nbrvitesse' => $this->faker->randomElement($array = array('4','5')),//Nombre de vitesse de transmission
         'puissancemonteur' => $this->faker->buildingNumber(),
         'nbrecylindre' => $this->faker->randomElement($array = array('4','6','8')),
         'chassis' => $this->faker->numberBetween($min = 1000, $max = 9000), // 8567
         'nbrkm' => $this->faker->buildingNumber(),
-        'Nbrportieretxt' => $this->faker->randomElement($array = array('deux','quatre')),
-        'Nbrportiereno' => $this->faker->randomElement($array = array('2','4')),
+        'nbrportiereno' => $this->faker->randomElement($array = array('2','4')),
         'annecar' => $this->faker->year($max = 'now'),
         'mordetails'=> $this->faker->sentence($nbWords = 6, $variableNbWords = true),
         'status'=>1,

@@ -11,12 +11,13 @@
                     <i class="fa fa-backward"></i>
                 </a>
             </h4>
-
+            <form method="Post" action="{{route('insertprod')}}">
+                @csrf
             <div class="col-md-12">
                 <div class="col-md-8">
 
-                    <form method="Post" action="{{route('insertprod')}}">
-                        @csrf
+
+
                         <table class="table ">
                             <tr>
                                 <td>
@@ -82,11 +83,15 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="inputState">Transmission</label>
-                                            <select id="inputState" class="form-control">
-                                                <option selected>..Choose Type...</option>
-                                                <option>...</option>
+                                            <select id="inputState" class="form-control" name="transmission">
+                                                <option value="">..Choose Type...</option>
+                                                @foreach (transmissionhelp() as $key => $cate)
+                                                    <option {{ old('transmission') == $key ? "selected" : "" }} value="{{ $key}}" >{{$cate}}</option>
+                                                @endforeach
                                             </select>
-                                            <p class="alert alert-danger">Toggle this custom radio</p>
+                                            @error('transmission')
+                                            <p class="alert alert-danger">{{ $message }}</p>
+                                            @enderror
                                         </div>
                                     </div>
                                 </td>
@@ -98,13 +103,17 @@
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
                                             <label for="inputEmail4">Modele</label>
-                                            <input type="text" class="form-control"  placeholder="Le modele">
-                                            <p class="alert alert-danger">Toggle this custom radio</p>
+                                            <input type="text" class="form-control"  placeholder="Le modele" name="modele" value="{{old('modele')}}">
+                                            @error('modele')
+                                            <p class="alert alert-danger">{{ $message }}</p>
+                                            @enderror
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="inputPassword4">Moteur</label>
-                                            <input type="text" class="form-control" placeholder="Le numero Moteur">
-                                            <p class="alert alert-danger">Toggle this custom radio</p>
+                                            <input type="text" class="form-control" placeholder="Le numero Moteur" name="puissancemonteur" value="{{old('puissancemonteur')}}">
+                                            @error('puissancemonteur')
+                                            <p class="alert alert-danger">{{ $message }}</p>
+                                            @enderror
                                         </div>
                                     </div>
 
@@ -116,28 +125,40 @@
 
                                     <div class="form-row">
                                         <div class="form-group col-md-4">
-                                            <label for="inputZip">Vitesse</label>
-                                            <select id="inputState" class="form-control">
-                                                <option selected>..Choose Type...</option>
-                                                <option>...</option>
+                                            <label for="inputZip">Vitesse</label>nbrvitesse
+                                            <select id="inputState" class="form-control" name="nbrvitesse">
+                                                <option value="">..Choose Type...</option>
+                                                @foreach (nbrvitessehelp() as $key => $cate)
+                                                    <option {{ old('nbrvitesse') == $key ? "selected" : "" }} value="{{ $key}}" >{{$cate}}</option>
+                                                @endforeach
                                             </select>
-                                            <p class="alert alert-danger">Toggle this custom radio</p>
+                                            @error('nbrvitesse')
+                                            <p class="alert alert-danger">{{ $message }}</p>
+                                            @enderror
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="inputState">Cynlindre</label>
-                                            <select id="inputState" class="form-control">
-                                                <option selected>..Choose Type...</option>
-                                                <option>...</option>
+                                            <select id="inputState" class="form-control" name="nbrecylindre">
+                                                <option value="">..Choose Type...</option>
+                                                @foreach (nbrecylindrehelp() as $key => $cate)
+                                                    <option {{ old('nbrecylindre') == $key ? "selected" : "" }} value="{{ $key}}" >{{$cate}}</option>
+                                                @endforeach
                                             </select>
-                                            <p class="alert alert-danger">Toggle this custom radio</p>
+                                            @error('nbrecylindre')
+                                            <p class="alert alert-danger">{{ $message }}</p>
+                                            @enderror
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="inputZip">Portiere</label>
-                                            <select id="inputState" class="form-control">
-                                                <option selected>..Choose nombre...</option>
-                                                <option>...</option>
+                                            <select id="inputState" class="form-control" name="nbrportiereno">
+                                                <option value="">..Choose nombre...</option>
+                                                @foreach (nbrportierenohelp() as $key => $cate)
+                                                    <option {{ old('nbrportiereno') == $key ? "selected" : "" }} value="{{ $key}}" >{{$cate}}</option>
+                                                @endforeach
                                             </select>
-                                            <p class="alert alert-danger">Toggle this custom radio</p>
+                                            @error('nbrportiereno')
+                                            <p class="alert alert-danger">{{ $message }}</p>
+                                            @enderror
                                         </div>
                                     </div>
                                 </td>
@@ -145,26 +166,30 @@
 
                             <tr>
                                 <td>
+
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
                                             <label for="inputCity">Siege</label>
-                                            <select id="inputState" class="form-control">
-                                                <option selected>..Choose nombre...</option>
-                                                <option>...</option>
+                                            <select id="inputState" class="form-control" name="nbrsierge">
+                                                <option value="">..Choose nombre...</option>
+                                                @foreach (nbrsiergehelp() as $key => $cate)
+                                                    <option {{ old('nbrsierge') == $key ? "selected" : "" }} value="{{ $key}}" >{{$cate}}</option>
+                                                @endforeach
                                             </select>
-                                            <p class="alert alert-danger">Toggle this custom radio</p>
+                                            @error('nbrsierge')
+                                            <p class="alert alert-danger">{{ $message }}</p>
+                                            @enderror
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="inputState">Annee</label>
-                                            <input type="text" class="form-control" placeholder="L'annee">
-                                            <p class="alert alert-danger">Toggle this custom radio</p>
+                                            <input type="text" class="form-control " placeholder="L'annee" name="annecar" value="{{old('annecar')}}"/>
+                                            @error('annecar')
+                                            <p class="alert alert-danger">{{ $message }}</p>
+                                            @enderror
                                         </div>
                                     </div>
-
                                 </td>
                             </tr>
-
-
                             <tr>
                                 <td>
                                     <button type="submit" class="btn btn-primary">Ajouter</button>
@@ -172,29 +197,44 @@
                             </tr>
                         </table>
 
-                    </form>
 
 
 
                 </div>
                 <div class="col-md-4">
-                        <a href="#" class="btn btn-xs btn-primary ">New Image</a>
+                   {{-- consommation //'Electrique','Moteur'
+                    chassis // numbre
+                    nbrkm // numbre
+                    mordetails //texte--}}
+                    <div class="form-group col-md-12">
+                        <label for="inputPassword4">chassis</label>
+                        <input type="text" class="form-control"  placeholder="Le Chassis" name="chassis" value="{{old('chassis')}}">
+                    </div>
+                     <div class="form-group col-md-12">
+                        <label for="inputPassword4">nbrkm</label>
+                        <input type="text" class="form-control"  placeholder="La nombre de Kilometre" name="nbrkm" value="{{old('nbrkm')}}">
+                    </div>
+                     <div class="form-group col-md-12">
+                        <label for="inputPassword4">consommation</label>
+                         <select id="inputState" class="form-control" name="consommation">
+                             <option value="">..Choose nombre...</option>
+                             @foreach (consommationhelp() as $key => $cate)
+                                 <option {{ old('consommation') == $key ? "selected" : "" }} value="{{ $key}}" >{{$cate}}</option>
+                             @endforeach
+                         </select>
+                    </div>
+                     <div class="form-group col-md-12">
+                        <label for="inputPassword4">morsdetails</label>
+                         <textarea class="form-control" rows="3" name="mordetails" placeholder="Votre texte">{{old('mordetails')}}</textarea>
+                    </div>
 
-                        <div id="photo-viewer"></div>
-                        <div id="thumbnails">
-                            <a href="{{asset('assets/images')}}/photo-1.jpg" class="thumb active" title="Pierre Cardin"><img src="{{asset('assets/images')}}/thumb-1.jpg" alt="Mens Polo Shirt" /></a>
-                            <a href="{{asset('assets/images')}}/photo-2.jpg" class="thumb" title="Pierre Cardin"><img src="{{asset('assets/images')}}/thumb-2.jpg" alt="Mens Polo Shirt" /></a>
-                            <a href="{{asset('assets/images')}}/photo-3.jpg" class="thumb" title="Pierre Cardin"><img src="{{asset('assets/images')}}/thumb-3.jpg" alt="Mens Polo Shirt" /></a>
-                            <a href="{{asset('assets/images')}}/photo-4.jpg" class="thumb" title="Pierre Cardin"><img src="{{asset('assets/images')}}/thumb-4.jpg" alt="Mens Polo Shirt" /></a>
-                            <a href="{{asset('assets/images')}}/photo-5.jpg" class="thumb" title="Pierre Cardin"><img src="{{asset('assets/images')}}/thumb-5.jpg" alt="Mens Polo Shirt" /></a>
-                            <a href="{{asset('assets/images')}}/photo-5.jpg" class="thumb" title="Pierre Cardin"><img src="{{asset('assets/images')}}/thumb-5.jpg" alt="Mens Polo Shirt" /></a>
-                            <a href="{{asset('assets/images')}}/photo-5.jpg" class="thumb" title="Pierre Cardin"><img src="{{asset('assets/images')}}/thumb-5.jpg" alt="Mens Polo Shirt" /></a>
-                        </div>
 
-                    {{--<img src="{{asset('assets/images/default.jpeg')}}" class="img-thumbnail">--}}
+
+
                 </div>
 
             </div>
+            </form>
 
 
 

@@ -29,7 +29,7 @@ border-right: 1px solid red;
                 </h4>
                 <hr>
 
-                {{$catelist->links()}}
+                {{ $catelist->links('pagination::bootstrap-4') }}
 
 
                 <thead>
@@ -125,7 +125,7 @@ border-right: 1px solid red;
 
                                                     <p>
                                                         Cynlindre <span class="badge badgescoloradd">{{$liste->nbrecylindre}}</span> |
-                                                        Portiere <span class="badge badgescoloradd">{{$liste->Nbrportiereno}}</span> |
+                                                        Portiere <span class="badge badgescoloradd">{{$liste->nbrportiereno}}</span> |
                                                         Siege <span class="badge badgescoloradd">{{$liste->nbrsierge}}</span> |
                                                         Annee <span class="badge badgescoloradd">{{$liste->annecar}}</span>
                                                     </p>
@@ -216,7 +216,7 @@ border-right: 1px solid red;
                 </tbody>
             </table>
 
-            {{ $catelist->links() }}
+            {{ $catelist->links('pagination::bootstrap-4') }}
         </div>
         <!-- /content-panel -->
     </div>

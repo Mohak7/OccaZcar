@@ -40,8 +40,7 @@ class CreateProduitsTable extends Migration
             $table->string('nbrecylindre','200')->nullable();
             $table->string('chassis','200')->nullable();
             $table->string('nbrkm','200')->nullable();
-            $table->string('Nbrportieretxt','200')->nullable();
-            $table->string('Nbrportiereno','200')->nullable();
+            $table->string('nbrportiereno','200')->nullable();
             $table->string('annecar','200')->nullable();
             $table->longText('mordetails')->nullable();
             $table->bigInteger('status')->nullable();

@@ -59,6 +59,14 @@ class ProduitsController extends Controller
             'marque.required'    => 'Le champ marque ne peut etre vide.',
             'carburant.required'    => 'Le champ Carburant ne peut etre vide.',
             'productcouleur_id.required'    => 'Le champ Couleur ne peut etre vide.',
+            'transmission.required'    => 'Le champ Transmission ne peut etre vide.',
+            'modele.required'    => 'Le champ Modele ne peut etre vide.',
+            'puissancemonteur.required'    => 'Le champ puissancemonteur ne peut etre vide.',
+            'nbrvitesse.required'    => 'Le champ nbrvitesse ne peut etre vide.',
+            'nbrecylindre.required'    => 'Le champ nbrecylindre ne peut etre vide.',
+            'nbrportiereno.required'    => 'Le champ nbrportiereno ne peut etre vide.',
+            'nbrsierge.required'    => 'Le champ nbrsierge ne peut etre vide.',
+            'annecar.required'    => 'Le champ annecar ne peut etre vide.',
         ];
 
         //verification et envoie des message
@@ -66,7 +74,15 @@ class ProduitsController extends Controller
             'category_id' => 'required',
             'marque' => 'required',
             'productcouleur_id' => 'required',
-            'carburant' => 'required'
+            'carburant' => 'required',
+            'transmission' => 'required',
+            'modele' => 'required',
+            'puissancemonteur' => 'required',
+            'nbrvitesse' => 'required',
+            'nbrecylindre' => 'required',
+            'nbrportiereno' => 'required',
+            'nbrsierge' => 'required',
+            'annecar' => 'required',
         ],$messages);
 
         dd($request->all());
@@ -93,7 +109,9 @@ class ProduitsController extends Controller
      */
     public function edit(Produits $produits)
     {
-        //
+        $catelist = Category::Where('status',1)->get();
+        $colors = Productcouleur::Where('status',1)->get();
+        return view('admpages/produits/edit',compact('catelist','colors'));
     }
 
     /**
