@@ -1,7 +1,12 @@
 <?php
+use Illuminate\Support\Arr;
 //On peut ecrire tous les fonction necessaire pour notre projet
 
 //affichages des images depuis une models
+
+
+
+
 if(!function_exists('photovoiturehelp')){
     function photovoiturehelp($id, $limite=NULL){
         return  App\Models\Photoproduits::Photovoiture($id, $limite);
@@ -10,13 +15,21 @@ if(!function_exists('photovoiturehelp')){
 
 //liste des carburant
 if(!function_exists('carburanhelp')){
-    function carburanhelp(){
+    function carburanhelp($key=NUll){
+
         $array = [
-            "1" => "Essence",
-            "2" => "Diesel",
-            "3" => "GPL",
+            '1' => 'Essence',
+            '2' => 'Diesel',
+            '3' => 'GPL',
         ];
-        return $array;
+
+        //SIn on ne passe pas de id dans cette eleemnt
+        if($key == NULL){
+            return $array;
+        }else{
+           //On appelle la function
+            return arraysearch($key,$array);
+        }
 
     }
 }
@@ -24,12 +37,20 @@ if(!function_exists('carburanhelp')){
 
 //liste des Transmission
 if(!function_exists('transmissionhelp')){
-    function transmissionhelp(){
+    function transmissionhelp($key=Null){
         $array = [
             "1" => 'Boite Manuelle',
             "2" => 'Automatique'
         ];
-        return $array;
+
+        //SIn on ne passe pas de id dans cette eleemnt
+        if($key == NULL){
+            return $array;
+        }else{
+            //On appelle la function
+            return arraysearch($key,$array);
+        }
+
 
     }
 }
@@ -41,65 +62,115 @@ if(!function_exists('transmissionhelp')){
  * @return \Illuminate\Http\Response
  */
 if(!function_exists('nbrvitessehelp')){
-    function nbrvitessehelp(){
+    function nbrvitessehelp($key=NULL){
         $array = [
             "1" => '4',
             "2" => '5',
             "3" => '6'
         ];
-        return $array;
+        //SIn on ne passe pas de id dans cette eleemnt
+        if($key == NULL){
+            return $array;
+        }else{
+            //On appelle la function
+            return arraysearch($key,$array);
+        }
 
     }
 }
+
+
+
+
+
 //liste des nbrecylindrehelp
 if(!function_exists('nbrecylindrehelp')){
-    function nbrecylindrehelp(){
+    function nbrecylindrehelp($key=NULL){
         $array = [
             "1" => '4',
             "2" => '6',
             "3" => '8'
         ];
-        return $array;
+        //SIn on ne passe pas de id dans cette eleemnt
+        if($key == NULL){
+            return $array;
+        }else{
+            //On appelle la function
+            return arraysearch($key,$array);
+        }
     }
 }
 
+
+
+
+
 //liste des nbrportiereno
 if(!function_exists('nbrportierenohelp')){
-    function nbrportierenohelp(){
+    function nbrportierenohelp($key=NULL){
         $array = [
             "1" => '4',
             "2" => '2'
         ];
-        return $array;
+        //SIn on ne passe pas de id dans cette eleemnt
+        if($key == NULL){
+            return $array;
+        }else{
+            //On appelle la function
+            return arraysearch($key,$array);
+        }
     }
 }
 
 
 //liste des nbrsiergehelp
 if(!function_exists('nbrsiergehelp')){
-    function nbrsiergehelp(){
+    function nbrsiergehelp($key=NULL){
         $array = [
             "1" => '4',
             "2" => '5',
             "3" => '6',
             "4" => '8'
         ];
-        return $array;
+        //SIn on ne passe pas de id dans cette eleemnt
+        if($key == NULL){
+            return $array;
+        }else{
+            //On appelle la function
+            return arraysearch($key,$array);
+        }
     }
 }
 
 //liste des consommationhelp
 if(!function_exists('consommationhelp')){
-    function consommationhelp(){
+    function consommationhelp($key=NULL){
         $array = [
             "1" => 'Electrique',
             "2" => 'Moteur',
         ];
-        return $array;
+        //SIn on ne passe pas de id dans cette eleemnt
+        if($key == NULL){
+            return $array;
+        }else{
+            //On appelle la function
+            return arraysearch($key,$array);
+        }
     }
 }
 
 
+
+
+//creation de la fonction de recherche de l'id array
+function arraysearch($key, $array){
+    //si on trouve une valeur passer pour cette element
+    $slice= Arr::only($array, $key);//on fait une recherche
+    //on convertir array en string ou chaine de caractaire
+    foreach ($slice as $value){
+        return $value;
+    }
+}
 
 
 

@@ -73,13 +73,24 @@
                     </ul>
                 </li>
 
-                    <li class="sub-menu">
+                <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-desktop"></i>
                         <span>Produits</span>
                     </a>
                     <ul class="sub">
                         <li><a href="{{route('listeprod')}}">Liste</a></li>
+                        <li><a href="#">Search</a></li>
+                    </ul>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-desktop"></i>
+                        <span>Prix</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="{{route('listepriceprod')}}">Liste</a></li>
                         <li><a href="#">Search</a></li>
                     </ul>
                 </li>

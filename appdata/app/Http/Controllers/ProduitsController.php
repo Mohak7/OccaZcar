@@ -85,7 +85,36 @@ class ProduitsController extends Controller
             'annecar' => 'required',
         ],$messages);
 
-        dd($request->all());
+        //Insertion des donnees dans la base de donnee
+        $prod= new Produits();
+
+        $prod->category_id = $request->category_id;
+        $prod->marque = $request->marque;
+        $prod->modele= $request->modele;
+        $prod->productcouleur_id= $request->productcouleur_id;
+        $prod->consommation= $request->consommation;
+        $prod->carburant= $request->carburant;
+        $prod->transmission= $request->transmission;
+        $prod->nbrsierge= $request->nbrsierge;
+        $prod->nbrvitesse= $request->nbrvitesse;
+        $prod->puissancemonteur= $request->puissancemonteur;
+        $prod->nbrecylindre= $request->nbrecylindre;
+        $prod->chassis= $request->chassis;
+        $prod->nbrkm= $request->nbrkm;
+        $prod->nbrportiereno= $request->nbrportiereno;
+        $prod->annecar= $request->annecar;
+        $prod->mordetails= $request->mordetails;
+        $prod->status= Null;
+        $prod->save();
+
+        //apres la sauvegardes des informations on recupere l'id
+        //pour l'evoyer a le view pour ajout des images
+        $id = $prod->id;
+
+        //redirection vers cette page pour ajout des images
+        return redirect()->route('showprod',$id);
+
+
 
 
     }
@@ -96,9 +125,27 @@ class ProduitsController extends Controller
      * @param  \App\Models\Produits  $produits
      * @return \Illuminate\Http\Response
      */
-    public function show(Produits $produits)
+    public function show(Request $request, Produits $produits)
     {
-        //
+        //on recuperes plusieur elements pour l'ajour des images
+        //apres chaque ajout on l'envoie vers cette lien
+        //comme cette commande va aussi ce repeter dans l'edit
+        //on vas le placer dans une include pour ne pas avoir de repetition
+
+        //On va plutot faire une mise a jour par seccion en utilisan le modal de bootstrap
+        //Affichages des Elements
+        //------de la table Produits
+        //------de la Tabale Couleur
+        //------de la Table Categories
+        $prod = Produits::where('id',$request->produit)
+                        ->with('couleurvoiture')
+                        ->with('Categorieviews')
+                        ->get();
+
+        $img = photovoiturehelp($request->produit);
+
+        return view('admpages/produits/view',compact('prod','img'));
+
     }
 
     /**
@@ -109,9 +156,9 @@ class ProduitsController extends Controller
      */
     public function edit(Produits $produits)
     {
-        $catelist = Category::Where('status',1)->get();
-        $colors = Productcouleur::Where('status',1)->get();
-        return view('admpages/produits/edit',compact('catelist','colors'));
+//        $catelist = Category::Where('status',1)->get();
+//        $colors = Productcouleur::Where('status',1)->get();
+//        return view('admpages/produits/edit',compact('catelist','colors'));
     }
 
     /**
@@ -123,7 +170,7 @@ class ProduitsController extends Controller
      */
     public function update(Request $request, Produits $produits)
     {
-        //
+        //NOs mise a jours
     }
 
     /**

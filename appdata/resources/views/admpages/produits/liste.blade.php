@@ -173,8 +173,7 @@ border-right: 1px solid red;
                                 @csrf
                                 @method('DELETE')
 
-                            <a href="#" class="btn btn-success btn-xs"><i class="fa fa-check"></i></a>
-                            <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                            <a href="{{route('showprod',$liste->id)}}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
 
                             <script>
                                 function ConfirmDeletebutton()

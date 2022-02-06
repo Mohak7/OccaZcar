@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Photoproduits;
+use App\Models\Price;
 use Illuminate\Http\Request;
 
 class HomepagesController extends Controller
@@ -10,10 +12,17 @@ class HomepagesController extends Controller
     //randue de la vue de l'index
     public function index(){
         $catelist = Category::where('status',1)->get();
-        //dd($catelist);
-
-        return view('publicpages\homepage',compact('catelist'));
+        $list = Price::where('status',1)
+                        ->get();
+        return view('publicpages\homepage',compact('catelist','list'));
     }
+
+
+    //afficher les details de la voiture
+    public function cardetail(Request $request){
+        dd($request->id);
+    }
+
 
 
     //randu de la vue de about

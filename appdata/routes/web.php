@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 
  Route::get('/','App\Http\Controllers\HomepagesController@index')->name('homepage');
  Route::get('about','App\Http\Controllers\HomepagesController@about')->name('aboutpage');
+ Route::get('voiture/{id}','App\Http\Controllers\HomepagesController@cardetail')->name('cardetailpage');
  Route::get('contact','App\Http\Controllers\HomepagesController@contact')->name('contactpage');
 
 
@@ -52,3 +53,17 @@ Route::resource('produits', 'App\Http\Controllers\ProduitsController')->names([
 ]);
 
 //fin les routes de produits
+
+
+//debut les routes de prix produits
+Route::resource('prixprod', 'App\Http\Controllers\PriceController')->names([
+    'index'=> 'listepriceprod',
+    'show'=> 'showpriceprod',
+    'create'=> 'newpriceprod',
+    'store'=> 'insertpriceprod',
+    'edit'=>'editpriceprod',
+    'update'=> 'updeditpriceprod',
+    'destroy'=> 'delpriceprod'
+]);
+
+//fin les routes de prix produits

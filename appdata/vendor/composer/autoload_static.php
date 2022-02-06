@@ -553,6 +553,7 @@ class ComposerStaticInit8c084d1229834a8472a1eafeb60e4029
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Models\\Category' => __DIR__ . '/../..' . '/app/Models/Category.php',
         'App\\Models\\Photoproduits' => __DIR__ . '/../..' . '/app/Models/Photoproduits.php',
+        'App\\Models\\Price' => __DIR__ . '/../..' . '/app/Models/Price.php',
         'App\\Models\\Productcouleur' => __DIR__ . '/../..' . '/app/Models/Productcouleur.php',
         'App\\Models\\Produits' => __DIR__ . '/../..' . '/app/Models/Produits.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
