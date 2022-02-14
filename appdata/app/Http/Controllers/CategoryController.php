@@ -45,7 +45,7 @@ class CategoryController extends Controller
             'namecate.required'    => 'Le champ Nom ne peut etre vide.',
             'namecate.unique'    => 'Le champ Nom existe dans notre base de donnee.',
             'namecate.max'    => 'ne dois pas depasser les 255 caractere',
-            'namecate.min'    => 'ne dois pas inferieur a 4 caractere',
+            'namecate.min'    => 'ne dois pas etre inferieur a 4 caractere',
         ];
 
         //verification et envoie des message

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ecriture;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,7 +26,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('Admin','App\Http\Controllers\DashboardController@index')->name('adminpage');
 
-//debut les routes de categorie
+//debut des routes de categorie
 Route::resource('category', 'App\Http\Controllers\CategoryController')->names([
     'index'=> 'listecate',
     'show'=> 'showcate',
@@ -39,9 +40,9 @@ Route::resource('category', 'App\Http\Controllers\CategoryController')->names([
 Route::get('/delcategory','App\Http\Controllers\CategoryController@sofderestore')->name('restaudelete');
 Route::get('/restoredestroy/{id}','App\Http\Controllers\CategoryController@restoredestroy')->name('restoredelecate');
 Route::delete('/destoredefinitely/{id}','App\Http\Controllers\CategoryController@destoredefinitely')->name('deletecompletecate');
-//fin les routes de categorie
+//fin des routes de categorie
 
-//debut les routes de produits
+//debut des routes de produits
 Route::resource('produits', 'App\Http\Controllers\ProduitsController')->names([
     'index'=> 'listeprod',
     'show'=> 'showprod',
@@ -52,7 +53,7 @@ Route::resource('produits', 'App\Http\Controllers\ProduitsController')->names([
     'destroy'=> 'delprod'
 ]);
 
-//fin les routes de produits
+//fin des routes de produits
 
 
 //debut les routes de prix produits
@@ -67,3 +68,6 @@ Route::resource('prixprod', 'App\Http\Controllers\PriceController')->names([
 ]);
 
 //fin les routes de prix produits
+
+Route::get('/test', [ecriture::class, 'teste']);
+

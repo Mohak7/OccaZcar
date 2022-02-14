@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class HomepagesController extends Controller
 {
-    //randue de la vue de l'index
+    //la vue de l'index
     public function index(){
         $catelist = Category::where('status',1)->get();
         $list = Price::where('status',1)
