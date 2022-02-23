@@ -77,8 +77,19 @@ status
 
 
 
+
 FTP Username	epiz_30736647
 FTP Password
 llwbDXtUxcESVlJ
 FTP Hostname	ftpupload.net
 FTP Port (optional)	21
+
+
+
+code important
+
+
+php artisan make:model -mcr NomModel
+
+
+php artisan make:factory PostFactory --model=Post

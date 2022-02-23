@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Photoproduits;
+use App\Models\Modelecar;
 use Illuminate\Http\Request;
 
-class PhotoproduitsController extends Controller
+class ModelecarController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class PhotoproduitsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Photoproduits  $photoproduits
+     * @param  \App\Models\Modelecar  $modelecar
      * @return \Illuminate\Http\Response
      */
-    public function show(Photoproduits $photoproduits)
+    public function show(Modelecar $modelecar)
     {
         //
     }
@@ -52,10 +52,10 @@ class PhotoproduitsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Photoproduits  $photoproduits
+     * @param  \App\Models\Modelecar  $modelecar
      * @return \Illuminate\Http\Response
      */
-    public function edit(Photoproduits $photoproduits)
+    public function edit(Modelecar $modelecar)
     {
         //
     }
@@ -64,10 +64,10 @@ class PhotoproduitsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Photoproduits  $photoproduits
+     * @param  \App\Models\Modelecar  $modelecar
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Photoproduits $photoproduits)
+    public function update(Request $request, Modelecar $modelecar)
     {
         //
     }
@@ -75,10 +75,10 @@ class PhotoproduitsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Photoproduits  $photoproduits
+     * @param  \App\Models\Modelecar  $modelecar
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Photoproduits $photoproduits)
+    public function destroy(Modelecar $modelecar)
     {
         //
     }

@@ -25,6 +25,24 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('Admin','App\Http\Controllers\DashboardController@index')->name('adminpage');
 
+//debut les routes de Couleur
+Route::resource('couleur', 'App\Http\Controllers\CouleurController')->names([
+    'index'=> 'listecolor',
+    'create'=> 'newcolor',
+    'store'=> 'insertcolor',
+    'edit'=>'editcolor',
+    'update'=> 'updeditcolor',
+    'destroy'=> 'delcolor'
+]);
+
+
+
+
+
+
+
+
+
 //debut les routes de categorie
 Route::resource('category', 'App\Http\Controllers\CategoryController')->names([
     'index'=> 'listecate',

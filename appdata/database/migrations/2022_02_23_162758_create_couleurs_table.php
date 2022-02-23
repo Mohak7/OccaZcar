@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePhotoproduitsTable extends Migration
+class CreateCouleursTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class CreatePhotoproduitsTable extends Migration
      */
     public function up()
     {
-        Schema::create('photoproduits', function (Blueprint $table) {
+        Schema::create('couleurs', function (Blueprint $table) {
             $table->id();
-			$table->foreignId('produits_id')
-                ->nullable()
-                ->constrained();
-			$table->string('photoname');
-			
-            
+            $table->char('name_color', 100);
+            $table->longText('code_color');
+            $table->integer('status')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -32,7 +30,6 @@ class CreatePhotoproduitsTable extends Migration
      */
     public function down()
     {
-		Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('photoproduits');
+        Schema::dropIfExists('couleurs');
     }
 }

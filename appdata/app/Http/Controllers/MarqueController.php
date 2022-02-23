@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Price;
+use App\Models\Marque;
 use Illuminate\Http\Request;
 
-class PriceController extends Controller
+class MarqueController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,11 +14,7 @@ class PriceController extends Controller
      */
     public function index()
     {
-        //$catelist = Produits::orderBy('updated_at', 'desc')->get();
-        $catelist = Price::orderBy('id', 'ASC')
-            ->paginate(10);
-
-        return view('admpages/price/liste',compact('catelist'));
+        //
     }
 
     /**
@@ -28,7 +24,7 @@ class PriceController extends Controller
      */
     public function create()
     {
-        return view('admpages/price/new');
+        //
     }
 
     /**
@@ -45,10 +41,10 @@ class PriceController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Price  $price
+     * @param  \App\Models\Marque  $marque
      * @return \Illuminate\Http\Response
      */
-    public function show(Price $price)
+    public function show(Marque $marque)
     {
         //
     }
@@ -56,10 +52,10 @@ class PriceController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Price  $price
+     * @param  \App\Models\Marque  $marque
      * @return \Illuminate\Http\Response
      */
-    public function edit(Price $price)
+    public function edit(Marque $marque)
     {
         //
     }
@@ -68,10 +64,10 @@ class PriceController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Price  $price
+     * @param  \App\Models\Marque  $marque
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Price $price)
+    public function update(Request $request, Marque $marque)
     {
         //
     }
@@ -79,10 +75,10 @@ class PriceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Price  $price
+     * @param  \App\Models\Marque  $marque
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Price $price)
+    public function destroy(Marque $marque)
     {
         //
     }
