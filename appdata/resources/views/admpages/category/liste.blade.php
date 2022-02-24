@@ -13,7 +13,7 @@
                     <a href="{{route('newcate')}}" class="btn btn-primary btn-sm" title="Nouveau Element">
                         <i class="fa fa-plus-circle"></i>
                     </a>
-                    <a href="{{route('restaudelete')}}" class="btn btn-danger btn-sm" title="Suprimer Element">
+                    <a href="{{route('listedelcate')}}" class="btn btn-danger btn-sm" title="Suprimer Element">
                         <i class="fa fa-trash"></i>
                     </a>
                 </h4>
@@ -27,7 +27,7 @@
                 </tr>
                 </thead>
 
-
+                {{ $catelist->links('pagination::bootstrap-4') }}
                 <tbody>
 
                 @forelse ($catelist as $liste)
@@ -92,6 +92,7 @@
 
                 </tbody>
             </table>
+            {{ $catelist->links('pagination::bootstrap-4') }}
         </div>
         <!-- /content-panel -->
     </div>

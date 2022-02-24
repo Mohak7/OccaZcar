@@ -23,7 +23,7 @@ border-right: 1px solid red;
                     <a href="{{route('newcolor')}}" class="btn btn-primary btn-sm" title="Nouveau Element">
                         <i class="fa fa-plus-circle"></i>
                     </a>
-                    <a href="#" class="btn btn-danger btn-sm" title="Suprimer Element">
+                    <a href="{{route('listedelcolor')}}" class="btn btn-danger btn-sm" title="Suprimer Element">
                         <i class="fa fa-trash"></i>
                     </a>
                 </h4>
@@ -63,7 +63,7 @@ border-right: 1px solid red;
                             @endif
                         </td>
                         <td>
-                            <form action="#" method="post" class='form-inline'>
+                            <form action="{{route('delcolor',$liste->id)}}" method="post" class='form-inline'>
                                 @csrf
                                 @method('DELETE')
 

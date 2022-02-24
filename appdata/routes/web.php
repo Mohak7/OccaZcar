@@ -34,13 +34,12 @@ Route::resource('couleur', 'App\Http\Controllers\CouleurController')->names([
     'update'=> 'updeditcolor',
     'destroy'=> 'delcolor'
 ]);
+//comme nous utilisons un softdelete de ce  fait nous allons creer une autre commande pour restaurer ou supression Totla
+Route::get('/delcouleur','App\Http\Controllers\CouleurController@sofderestore')->name('listedelcolor');
+Route::get('/restorecolor/{id}','App\Http\Controllers\CouleurController@restoredestroy')->name('restorecolor');
+Route::delete('/destorecolor/{id}','App\Http\Controllers\CouleurController@destoredefinitely')->name('deletecompletecolor');
 
-
-
-
-
-
-
+//fin les routes de Couleur
 
 
 //debut les routes de categorie
@@ -54,10 +53,13 @@ Route::resource('category', 'App\Http\Controllers\CategoryController')->names([
     'destroy'=> 'delcate'
 ]);
 
-Route::get('/delcategory','App\Http\Controllers\CategoryController@sofderestore')->name('restaudelete');
+Route::get('/delcategory','App\Http\Controllers\CategoryController@sofderestore')->name('listedelcate');
 Route::get('/restoredestroy/{id}','App\Http\Controllers\CategoryController@restoredestroy')->name('restoredelecate');
 Route::delete('/destoredefinitely/{id}','App\Http\Controllers\CategoryController@destoredefinitely')->name('deletecompletecate');
 //fin les routes de categorie
+
+
+
 
 //debut les routes de produits
 Route::resource('produits', 'App\Http\Controllers\ProduitsController')->names([

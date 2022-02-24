@@ -118,33 +118,39 @@ class CouleurController extends Controller
         elseif ($request->name_color != $couleur->name_color AND $request->code_color == $couleur->code_color)
         {
             //Dans le cas on veut update que le nom couleur et le status
-            dd('update le nom couleur et le status');
+            //----------dd('update le nom couleur et le status');
             //on verifie si le nom existe si oui on renvoie le msg d'erreur
+            //verification et envoie des message
+            $request->validate([
+                'name_color' => 'required|unique:couleurs|min:2|max:255',
+            ],$messages);
             //si non ou fait la mise a jours
+            $color->update([
+                'name_color' => $request->name_color,
+                'status' => $request->status
+            ]);
+            return redirect()->route('editcolor',$couleur->id);
         }
         elseif ($request->name_color == $couleur->name_color AND $request->code_color != $couleur->code_color)
         {
             //Dans le cas on veut update que le code couleur et le status
-            dd('update le code couleur et le status');
+            //----------------dd('update le code couleur et le status');
             //on verifie si le nom existe si oui on renvoie le msg d'erreur
             //si non ou fait la mise a jours
+            $request->validate([
+                'code_color' => 'required|unique:couleurs|min:2|max:255',
+            ],$messages);
+            //si non ou fait la mise a jours
+            $color->update([
+                'code_color' => $request->code_color,
+                'status' => $request->status
+            ]);
+            return redirect()->route('editcolor',$couleur->id);
         }
         else{
             //on renvoie vers la mem pages
             return redirect()->route('editcolor',$couleur->id);
         }
-
-
-
-
-
-
-
-
-
-
-
-
 
     }
 
@@ -156,6 +162,47 @@ class CouleurController extends Controller
      */
     public function destroy(Couleur $couleur)
     {
-        //
+        //dd('delete',$couleur->id);
+        Couleur::destroy($couleur->id);
+        return redirect()->route('listecolor');
     }
+
+    //recuperon et supression total les elementys
+    public function sofderestore()
+    {
+        //afficher les elements suprimers
+        $color = Couleur::onlyTrashed()->get();
+        return view('admpages/couleurs/del', compact('color'));
+    }
+
+    //restauration des element suprimer par son ID
+    public function restoredestroy(Request $request)
+    {
+        //.................dd('restauration',$request->id);
+        Couleur::onlyTrashed()
+            ->where('id', $request->id)
+            ->restore();
+        return redirect()->route('listecolor');
+    }
+
+
+
+    //supression definitivement de la table
+    public function destoredefinitely(Request $request)
+    {
+        //..............dd('delete', $request->id);
+        Couleur::onlyTrashed()
+            ->where('id', $request->id)
+            ->forceDelete();
+        return redirect()->route('listecolor');
+    }
+
+
+
+
+
+
+
+
+
 }

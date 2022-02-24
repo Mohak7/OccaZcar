@@ -76,6 +76,17 @@
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-desktop"></i>
+                        <span>Couleur</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="{{route('listecolor')}}">Liste</a></li>
+                        <li><a href="{{route('newcolor')}}">Nouveau</a></li>
+                    </ul>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-desktop"></i>
                         <span>Produits</span>
                     </a>
                     <ul class="sub">
