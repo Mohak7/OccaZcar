@@ -15,6 +15,9 @@ class CreateTransmissionsTable extends Migration
     {
         Schema::create('transmissions', function (Blueprint $table) {
             $table->id();
+            $table->char('nom_tranz', 100);
+            $table->integer('status')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

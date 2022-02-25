@@ -41,6 +41,38 @@ Route::delete('/destorecolor/{id}','App\Http\Controllers\CouleurController@desto
 
 //fin les routes de Couleur
 
+//debut les routes de Transmission
+Route::resource('transmission', 'App\Http\Controllers\TransmissionController')->names([
+    'index'=> 'listetranz',
+    'create'=> 'newtranz',
+    'store'=> 'inserttranz',
+    'edit'=>'edittranz',
+    'update'=> 'updedittranz',
+    'destroy'=> 'deltranz'
+]);
+//comme nous utilisons un softdelete de ce  fait nous allons creer une autre commande pour restaurer ou supression Totla
+Route::get('/deltranz','App\Http\Controllers\TransmissionController@sofderestore')->name('listedeltranz');
+Route::get('/restoretranz/{id}','App\Http\Controllers\TransmissionController@restoredestroy')->name('restoretranz');
+Route::delete('/destoretranz/{id}','App\Http\Controllers\TransmissionController@destoredefinitely')->name('deletecompletetranz');
+
+//fin les routes de Transmission
+
+//debut les routes de marque
+Route::resource('marque', 'App\Http\Controllers\MarqueController')->names([
+    'index'=> 'listemarque',
+    'create'=> 'newmarque',
+    'store'=> 'insertmarque',
+    'edit'=>'editmarque',
+    'update'=> 'updeditmarque',
+    'destroy'=> 'delmarque'
+]);
+//comme nous utilisons un softdelete de ce  fait nous allons creer une autre commande pour restaurer ou supression Totla
+Route::get('/delmarque','App\Http\Controllers\MarqueController@sofderestore')->name('listedelmarque');
+Route::get('/restoremarque/{id}','App\Http\Controllers\MarqueController@restoredestroy')->name('restoremarque');
+Route::delete('/destoremarque/{id}','App\Http\Controllers\MarqueController@destoredefinitely')->name('deletecompletemarque');
+
+//fin les routes de marque
+
 
 //debut les routes de categorie
 Route::resource('category', 'App\Http\Controllers\CategoryController')->names([

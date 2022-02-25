@@ -87,6 +87,28 @@
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-desktop"></i>
+                        <span>Transmission</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="{{route('listetranz')}}">Liste</a></li>
+                        <li><a href="{{route('newtranz')}}">Nouveau</a></li>
+                    </ul>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-desktop"></i>
+                        <span>Marques</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="{{route('listemarque')}}">Liste</a></li>
+                        <li><a href="{{route('newmarque')}}">Nouveau</a></li>
+                    </ul>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-desktop"></i>
                         <span>Produits</span>
                     </a>
                     <ul class="sub">

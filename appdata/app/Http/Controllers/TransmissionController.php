@@ -14,7 +14,8 @@ class TransmissionController extends Controller
      */
     public function index()
     {
-        //
+        $tranzlist = Transmission::orderBy('updated_at', 'desc')->get();
+        return view('admpages/transmission/liste',compact('tranzlist'));
     }
 
     /**
@@ -24,7 +25,7 @@ class TransmissionController extends Controller
      */
     public function create()
     {
-        //
+        return view('admpages/transmission/new');
     }
 
     /**
@@ -35,19 +36,31 @@ class TransmissionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //verifier si le Tansmission exite et tous les teste neccessaire
+
+        //nos message a renvoyer en cas d'erreur
+        $messages = [
+            'nom_tranz.required'    => 'Le champ Nom ne peut etre vide.',
+            'nom_tranz.unique'    => 'Le champ Nom existe dans notre base de donnee.',
+            'nom_tranz.max'    => 'ne dois pas depasser les 255 caractere',
+            'nom_tranz.min'    => 'ne dois pas inferieur a 4 caractere',
+        ];
+
+        //verification et envoie des message
+        $request->validate([
+            'nom_tranz' => 'required|unique:transmissions|min:4|max:255',
+        ],$messages);
+
+        //insertion de nouvelle de donnee
+        $cate= new Transmission();
+        $cate->nom_tranz = $request->nom_tranz;
+        $cate->status = $request->status;
+        $cate->save();
+        //redirection vers la page liste
+        return redirect()->route('listetranz');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Transmission  $transmission
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Transmission $transmission)
-    {
-        //
-    }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -57,7 +70,7 @@ class TransmissionController extends Controller
      */
     public function edit(Transmission $transmission)
     {
-        //
+        return view('admpages/transmission/edit', compact('transmission'));
     }
 
     /**
@@ -69,7 +82,39 @@ class TransmissionController extends Controller
      */
     public function update(Request $request, Transmission $transmission)
     {
-        //
+        //nos message a renvoyer en cas d'erreur
+        $messages = [
+            'nom_tranz.required'    => 'Le champ Nom ne peut etre vide.',
+            'nom_tranz.unique'    => 'Le champ Nom existe dans notre base de donnee.',
+            'nom_tranz.max'    => 'ne dois pas depasser les 255 caractere',
+            'nom_tranz.min'    => 'ne dois pas inferieur a 4 caractere',
+        ];
+
+
+        $cateup= Transmission::where('id', $transmission->id);
+
+
+
+        //avans de lancer on pose une condition
+        if($request->nom_tranz == $transmission->nom_tranz){
+            //on faits que la mise a jour de status
+
+            $cateup->update(['status' => $request->status]);
+            return redirect()->route('listetranz');
+
+        }else{
+            //verification et envoie des message
+            $request->validate([
+                'nom_tranz' => 'required|unique:transmissions|min:4|max:255',
+            ],$messages);
+
+            //on fait la mise a jours de tous les elements
+            $cateup->update(
+                ['nom_tranz' => $request->nom_tranz],
+                ['status' => $request->status],
+                );
+            return redirect()->route('listetranz');
+        }
     }
 
     /**
@@ -80,6 +125,48 @@ class TransmissionController extends Controller
      */
     public function destroy(Transmission $transmission)
     {
-        //
+        Transmission::destroy($transmission->id);
+        return redirect()->route('listetranz');
     }
+
+
+    //recuperon et supression total les elementys
+    public function sofderestore()
+    {
+        //afficher les elements suprimers
+        $tranzlist = Transmission::onlyTrashed()->get();
+        return view('admpages/transmission/del', compact('tranzlist'));
+    }
+
+    //restauration des element suprimer par son ID
+    public function restoredestroy(Request $request)
+    {
+        //dd($request->id);
+        Transmission::onlyTrashed()
+            ->where('id', $request->id)
+            ->restore();
+        return redirect()->route('listetranz');
+    }
+
+
+
+    //supression definitivement de la table
+    public function destoredefinitely(Request $request)
+    {
+        //dd($request->id);
+        Transmission::onlyTrashed()
+            ->where('id', $request->id)
+            ->forceDelete();
+        return redirect()->route('listetranz');
+    }
+
+
+
+
+
+
+
+
+
+
 }
