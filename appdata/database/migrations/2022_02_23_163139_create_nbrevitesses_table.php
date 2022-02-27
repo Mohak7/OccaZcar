@@ -15,6 +15,10 @@ class CreateNbrevitessesTable extends Migration
     {
         Schema::create('nbrevitesses', function (Blueprint $table) {
             $table->id();
+            $table->char('number', 100);
+            $table->char('attribut_29',200)->nullable();
+            $table->integer('status')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

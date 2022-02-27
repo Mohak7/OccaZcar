@@ -15,6 +15,9 @@ class CreateCarburantsTable extends Migration
     {
         Schema::create('carburants', function (Blueprint $table) {
             $table->id();
+            $table->char('nom', 100);
+            $table->integer('status')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

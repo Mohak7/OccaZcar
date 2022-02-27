@@ -41,6 +41,44 @@ Route::delete('/destorecolor/{id}','App\Http\Controllers\CouleurController@desto
 
 //fin les routes de Couleur
 
+//debut les routes de Nombre de vitesse
+Route::resource('nbrevitesse', 'App\Http\Controllers\NbrevitesseController')->names([
+    'index'=> 'listenbrv',
+    'create'=> 'newnbrv',
+    'store'=> 'insertnbrv',
+    'edit'=>'editnbrv',
+    'update'=> 'updeditnbrv',
+    'destroy'=> 'delnbrv'
+]);
+//comme nous utilisons un softdelete de ce  fait nous allons creer une autre commande pour restaurer ou supression Totla
+Route::get('/delnbrv','App\Http\Controllers\NbrevitesseController@sofderestore')->name('listedelnbrv');
+Route::get('/restorenbrv/{id}','App\Http\Controllers\NbrevitesseController@restoredestroy')->name('restorenbrv');
+Route::delete('/destorenbrv/{id}','App\Http\Controllers\NbrevitesseController@destoredefinitely')->name('deletecompletenbrv');
+
+//fin les routes de Nombre de vitesse
+
+
+//debut les routes de Nombre de Carburant
+Route::resource('carburant', 'App\Http\Controllers\CarburantController')->names([
+    'index'=> 'listecarbure',
+    'create'=> 'newcarbure',
+    'store'=> 'insertcarbure',
+    'edit'=>'editcarbure',
+    'update'=> 'updeditcarbure',
+    'destroy'=> 'delcarbure'
+]);
+//comme nous utilisons un softdelete de ce  fait nous allons creer une autre commande pour restaurer ou supression Totla
+Route::get('/delcarbure','App\Http\Controllers\CarburantController@sofderestore')->name('listedelcarbure');
+Route::get('/restorecarbure/{id}','App\Http\Controllers\CarburantController@restoredestroy')->name('restorecarbure');
+Route::delete('/destorecarbure/{id}','App\Http\Controllers\CarburantController@destoredefinitely')->name('deletecompletecarbure');
+
+//fin les routes de Nombre de Carburant
+
+
+
+
+
+
 //debut les routes de Transmission
 Route::resource('transmission', 'App\Http\Controllers\TransmissionController')->names([
     'index'=> 'listetranz',

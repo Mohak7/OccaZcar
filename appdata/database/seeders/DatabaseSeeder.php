@@ -18,5 +18,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\Category::factory(20)->create();
         \App\Models\Transmission::factory(3)->create();
         \App\Models\Marque::factory(28)->create();
+        \App\Models\Nbrevitesse::factory(3)->create();
+        \App\Models\Carburant::factory(10)->create();
     }
 }

@@ -14,7 +14,9 @@ class CarburantController extends Controller
      */
     public function index()
     {
-        //
+        $carbure = Carburant::orderBy('updated_at', 'desc')->get();
+
+        return view('admpages/carbure/liste',compact('carbure'));
     }
 
     /**

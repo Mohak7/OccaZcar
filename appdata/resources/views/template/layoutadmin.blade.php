@@ -109,6 +109,28 @@
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-desktop"></i>
+                        <span>Nbrevitesse</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="{{route('listenbrv')}}">Liste</a></li>
+                        <li><a href="{{route('newnbrv')}}">Nouveau</a></li>
+                    </ul>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-desktop"></i>
+                        <span>Carburant</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="{{route('listecarbure')}}">Liste</a></li>
+                        <li><a href="{{route('newcarbure')}}">Nouveau</a></li>
+                    </ul>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-desktop"></i>
                         <span>Produits</span>
                     </a>
                     <ul class="sub">
