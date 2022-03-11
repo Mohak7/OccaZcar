@@ -18,9 +18,6 @@
                 <div class="row">
 
 
-
-
-
                     <!-- product -->
                     {{--<div class="product col-md-3">--}}
                         {{--<div class="product-img">--}}
