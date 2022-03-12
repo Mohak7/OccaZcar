@@ -15,6 +15,9 @@ class CreateAnnoncesTable extends Migration
     {
         Schema::create('annonces', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('status')->nullable();
+            $table->longText('codeannonce');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

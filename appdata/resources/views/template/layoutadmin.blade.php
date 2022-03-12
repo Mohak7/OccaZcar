@@ -131,6 +131,17 @@
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-desktop"></i>
+                        <span>Annonce</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="{{route('listeannonce')}}">Liste</a></li>
+                        <li><a href="{{route('newannonce')}}">Nouveau</a></li>
+                    </ul>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-desktop"></i>
                         <span>Produits</span>
                     </a>
                     <ul class="sub">

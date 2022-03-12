@@ -1,0 +1,21 @@
+<?php
+
+namespace Database\Factories;
+
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+class AnnonceFactory extends Factory
+{
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        return [
+            'codeannonce' => $this->faker->ean8(),
+            'status' => '1',
+        ];
+    }
+}

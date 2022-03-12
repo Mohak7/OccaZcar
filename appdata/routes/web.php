@@ -128,6 +128,32 @@ Route::get('/restoredestroy/{id}','App\Http\Controllers\CategoryController@resto
 Route::delete('/destoredefinitely/{id}','App\Http\Controllers\CategoryController@destoredefinitely')->name('deletecompletecate');
 //fin les routes de categorie
 
+//debut les routes de Nombre d Annonce
+Route::resource('annonce', 'App\Http\Controllers\AnnonceController')->names([
+    'index'=> 'listeannonce',
+    'create'=> 'newannonce',
+    'store'=> 'insertannonce',
+    'edit'=>'editannonce',
+    'update'=> 'updeditannonce',
+    'destroy'=> 'delannonce'
+]);
+//comme nous utilisons un softdelete de ce  fait nous allons creer une autre commande pour restaurer ou supression Totla
+Route::get('/delannonce','App\Http\Controllers\AnnonceController@sofderestore')->name('listedelannonce');
+Route::get('/restoreannonce/{id}','App\Http\Controllers\AnnonceController@restoredestroy')->name('restoreannonce');
+Route::delete('/destoreannonce/{id}','App\Http\Controllers\AnnonceController@destoredefinitely')->name('deletecompleteannonce');
+
+//fin les routes de Nombre de Annonce
+
+
+
+
+
+
+
+
+
+
+
 
 
 

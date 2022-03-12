@@ -1,25 +1,25 @@
 @extends('template\layoutadmin')
 
-@section('title', 'Marque')
+@section('title', 'Carburant')
 
 @section('contentadmin')
 
         <div class="col-lg-12">
             <h4><i class="fa fa-angle-right"></i>
                 Creation de nouveau Element
-                <a href="{{route('listemarque')}}" class="btn btn-danger btn-sm" title="Retour">
+                <a href="{{route('listecarbure')}}" class="btn btn-danger btn-sm" title="Retour">
                     <i class="fa fa-backward"></i>
                 </a>
             </h4>
             <div class="form-panel">
                 <div class=" form">
-                    <form class="cmxform form-horizontal style-form" id="commentForm" method="post" action="{{route('insertmarque')}}">
+                    <form class="cmxform form-horizontal style-form" id="commentForm" method="post" action="{{route('insertcarbure')}}">
                         @csrf
                         <div class="form-group ">
                             <label for="cname" class="control-label col-lg-2">Name</label>
                             <div class="col-lg-10">
-                                <input class=" form-control"  name="nom_marque" minlength="2" type="text" value="{{@old('nom_marque')}}" placeholder="Entre le nom de votre element"/>
-                                @error('nom_marque')
+                                <input class=" form-control"  name="nom" minlength="2" type="text" value="{{@old('nom')}}" placeholder="Entre le nom de votre element"/>
+                                @error('nom')
                                 <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
