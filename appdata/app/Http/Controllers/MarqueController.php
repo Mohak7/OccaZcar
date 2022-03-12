@@ -15,8 +15,9 @@ class MarqueController extends Controller
      */
     public function index()
     {
-        $marque = Marque::orderBy('updated_at', 'desc')->paginate(10);
+        $marque = Marque::withCount('modeleviewsmarque')->orderBy('updated_at', 'desc')->paginate(10);
 
+        //dd($marque);
         return view('admpages/marques/liste',compact('marque'));
     }
 
@@ -137,7 +138,7 @@ class MarqueController extends Controller
     public function sofderestore()
     {
         //afficher les elements suprimers
-        $marquelist = Marque::onlyTrashed()->paginate(10);
+        $marquelist = Marque::withCount('modeleviewsmarque')->onlyTrashed()->paginate(10);
         return view('admpages/marques/del', compact('marquelist'));
     }
 

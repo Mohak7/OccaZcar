@@ -112,6 +112,28 @@ Route::delete('/destoremarque/{id}','App\Http\Controllers\MarqueController@desto
 //fin les routes de marque
 
 
+
+
+//debut les routes de Modele de voiture
+Route::resource('modele', 'App\Http\Controllers\ModelecarController')->names([
+    'index'=> 'listemodele',
+    'create'=> 'newmodele',
+    'store'=> 'insertmodele',
+    'edit'=>'editmodele',
+    'update'=> 'updeditmodele',
+    'destroy'=> 'delmodele'
+]);
+//comme nous utilisons un softdelete de ce  fait nous allons creer une autre commande pour restaurer ou supression Totla
+Route::get('/delmodele','App\Http\Controllers\ModelecarController@sofderestore')->name('listedelmodele');
+Route::get('/restoremodele/{id}','App\Http\Controllers\ModelecarController@restoredestroy')->name('restoremodele');
+Route::delete('/destoremodele/{id}','App\Http\Controllers\ModelecarController@destoredefinitely')->name('deletecompletemodele');
+
+//fin les routes de Modele de voiture
+
+
+
+
+
 //debut les routes de categorie
 Route::resource('category', 'App\Http\Controllers\CategoryController')->names([
     'index'=> 'listecate',

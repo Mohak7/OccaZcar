@@ -1,38 +1,61 @@
 @extends('template\layoutadmin')
 
-@section('title', 'Marques')
+@section('title', 'Modele')
 
 @section('contentadmin')
+
+<style media="screen">
+table.table tbody tr td,
+table.table thead tr th,
+table.table thead {
+border-left: 1px solid red;
+border-right: 1px solid red;
+}
+</style>
+
 
     <div class="col-md-12">
         <div class="content-panel">
             <table class="table table-striped table-advance table-hover">
                 <h4>
                     <i class="fa fa-angle-right"></i>
-                    Liste de Marques
-                    <a href="{{route('newmarque')}}" class="btn btn-primary btn-sm" title="Nouveau Element">
+                    Liste de Modele
+                    <a href="{{route('newmodele')}}" class="btn btn-primary btn-sm" title="Nouveau Element">
                         <i class="fa fa-plus-circle"></i>
                     </a>
-                    <a href="{{route('listedelmarque')}}" class="btn btn-danger btn-sm" title="Suprimer Element">
+                    <a href="{{route('listedelmodele')}}" class="btn btn-danger btn-sm" title="Suprimer Element">
                         <i class="fa fa-trash"></i>
                     </a>
                 </h4>
                 <hr>
+
+                {{ $modele->links('pagination::bootstrap-4') }}
+
+
                 <thead>
                 <tr>
+                    <th><i class="fa fa-bullhorn"></i> #</th>
                     <th><i class="fa fa-bullhorn"></i> Nom </th>
-                    <th><i class="fa fa-bookmark"></i> Date</th>
+                    <th><i class="fa fa-bullhorn"></i> Marque </th>
                     <th><i class=" fa fa-edit"></i> Status</th>
                     <th></th>
                 </tr>
                 </thead>
-                {{ $marque->links('pagination::bootstrap-4') }}
+
+
                 <tbody>
 
-                @forelse ($marque as $liste)
+                @forelse ($modele as $liste)
                     <tr>
-                        <td>{{$liste->nom_marque}}</td>
-                        <td>{{$liste->created_at}}</td>
+
+                        <td>{{ $liste->id }}</td>
+
+                        <td>{{$liste->nom_modele}} </td>
+                        <td>
+                            {{--{{$liste->marques_id}} ==--}}
+                            {{$liste->marquesviews->nom_marque}}
+                        </td>
+
                         <td>
                             @if ($liste->status == 1)
                                 <span class="label label-success label-mini">ON</span>
@@ -41,12 +64,11 @@
                             @endif
                         </td>
                         <td>
-
-                            <form action="{{route('delmarque',$liste->id)}}" method="post" class='form-inline'>
+                            <form action="{{route('delmodele',$liste->id)}}" method="post" class='form-inline'>
                                 @csrf
                                 @method('DELETE')
 
-                            <a href="{{route('editmarque',$liste->id)}}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                            <a href="{{route('editmodele',$liste->id)}}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
 
                             <script>
                                 function ConfirmDeletebutton()
@@ -75,22 +97,12 @@
 
                 @endforelse
 
-
-
-
-
-
-
-
-
-
-
                 </tbody>
             </table>
-            {{ $marque->links('pagination::bootstrap-4') }}
+
+            {{ $modele->links('pagination::bootstrap-4') }}
         </div>
         <!-- /content-panel -->
     </div>
 
 @endsection
-

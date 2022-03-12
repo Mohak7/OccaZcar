@@ -139,6 +139,21 @@
                     </ul>
                 </li>
 
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-desktop"></i>
+                        <span>Modele</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="{{route('listemodele')}}">Liste</a></li>
+                        <li><a href="{{route('newmodele')}}">Nouveau</a></li>
+                    </ul>
+                </li>
+
+
+
+
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-desktop"></i>

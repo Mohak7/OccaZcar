@@ -1,6 +1,6 @@
 @extends('template\layoutadmin')
 
-@section('title', 'Marque')
+@section('title', 'Couleur')
 
 @section('contentadmin')
 
@@ -9,27 +9,29 @@
             <table class="table table-striped table-advance table-hover">
                 <h4>
                     <i class="fa fa-angle-right"></i>
-                    Liste de Marque Suprimer
-                    <a href="{{route('listemarque')}}" class="btn btn-danger btn-sm" title="Retour">
+                    Liste de Couleur Suprimer
+                    <a href="{{route('listecolor')}}" class="btn btn-danger btn-sm" title="Retour">
                         <i class="fa fa-backward"></i>
                     </a>
                 </h4>
                 <hr>
                 <thead>
                 <tr>
-                    <th><i class="fa fa-bullhorn"></i> Nom </th>
+                    <th><i class="fa fa-bullhorn"></i> Nom Couleur</th>
+                    <th><i class="fa fa-bullhorn"></i> code Couleur</th>
                     <th><i class="fa fa-bookmark"></i> Date supression</th>
                     <th><i class=" fa fa-edit"></i> Status</th>
                     <th></th>
                 </tr>
                 </thead>
 
-                {{ $marquelist->links('pagination::bootstrap-4') }}
+
                 <tbody>
 
-                @forelse ($marquelist  as $liste)
+                @forelse ($color  as $liste)
                     <tr>
-                        <td>{{$liste->nom_marque}}</td>
+                        <td> {{$liste->name_color}}</td>
+                        <td>{{$liste->code_color}}</td>
                         <td>{{$liste->deleted_at}}</td>
                         <td>
                             @if ($liste->status == 1)
@@ -39,32 +41,20 @@
                             @endif
                         </td>
                         <td>
-
-
-
-
-                            <form action="{{route('deletecompletemarque',$liste->id)}}" method="post" class='form-inline'>
+                            <form action="{{route('deletecompletecolor',$liste->id)}}" method="post" class='form-inline'>
                                 @csrf
                                 @method('DELETE')
+                                <a href="{{route('restorecolor',$liste->id)}}" class="btn btn-warning btn-xs"><i class="fa fa-trash"></i></a>
 
-                                <a href="{{route('restoremarque',$liste->id)}}" class="btn btn-warning btn-xs"><i class="fa fa-trash"></i></a>
                                 <script>
                                     function ConfirmDeletebutton()
                                     {
                                         return confirm("Are you sure you want to delete defeinitely?");
                                     }
                                 </script>
-
-                                @if($liste->modeleviewsmarque_count > 0)
-                                    can t delete
-                                    @else
-                                    <button Onclick="return ConfirmDeletebutton();" type="submit" class=" form-group btn btn-danger btn-xs">
-                                        <i class="fa fa-trash-o "></i>
-                                    </button>
-                                @endif
-
-
-
+                                <button Onclick="return ConfirmDeletebutton();" type="submit" class=" form-group btn btn-danger btn-xs">
+                                    <i class="fa fa-trash-o "></i>
+                                </button>
                             </form>
                         </td>
                     </tr>
@@ -95,7 +85,6 @@
 
                 </tbody>
             </table>
-            {{ $marquelist->links('pagination::bootstrap-4') }}
         </div>
         <!-- /content-panel -->
     </div>

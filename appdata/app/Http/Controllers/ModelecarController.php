@@ -14,7 +14,10 @@ class ModelecarController extends Controller
      */
     public function index()
     {
-        //
+        $modele = Modelecar::with('marquesviews')
+                ->orderBy('updated_at', 'desc')->paginate(10);
+
+        return view ('admpages/modeles/liste',compact('modele'));
     }
 
     /**

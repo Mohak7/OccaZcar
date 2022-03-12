@@ -15,6 +15,12 @@ class CreateModelecarsTable extends Migration
     {
         Schema::create('modelecars', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('marque_id')
+                ->nullable()
+                ->constrained();
+            $table->string('nom_modele');
+            $table->bigInteger('status')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -26,6 +32,7 @@ class CreateModelecarsTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('modelecars');
     }
 }
