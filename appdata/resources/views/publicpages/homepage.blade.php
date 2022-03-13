@@ -50,7 +50,7 @@
                     {{--</div>--}}
                     <!-- /product -->
 
-
+<?php /*
                     @forelse ($list as $prod)
                         <!-- product -->
                             <div class="product col-md-3">
@@ -85,10 +85,10 @@
     </div>
     <!-- /container -->
 </div>
-<!-- /SECTION -->
+<!-- /SECTION --> */?>
 
 
-@include('template\newletter')
+
 
 
 

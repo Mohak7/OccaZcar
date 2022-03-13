@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
+use App\Models\Categorie;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -14,7 +14,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $catelist = Category::orderBy('updated_at', 'desc')->paginate(10);
+        $catelist = Categorie::orderBy('updated_at', 'desc')->paginate(10);
 
         return view('admpages/category/liste',compact('catelist'));
     }
@@ -53,7 +53,7 @@ class CategoryController extends Controller
         ],$messages);
 
         //insertion de nouvelle de donnee
-        $cate= new Category();
+        $cate= new Categorie();
         $cate->namecate = $request->namecate;
         $cate->status = $request->status;
         $cate->save();
@@ -64,10 +64,10 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\Categorie  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show(Categorie $category)
     {
         return view('admpages/category/view', compact('category'));
     }
@@ -78,7 +78,7 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit(Categorie $category)
     {
         return view('admpages/category/edit', compact('category'));
     }
@@ -87,10 +87,10 @@ class CategoryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\Categorie  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, Categorie $category)
     {
         //nos message a renvoyer en cas d'erreur
         $messages = [
@@ -101,7 +101,7 @@ class CategoryController extends Controller
         ];
 
 
-        $cateup= Category::where('id', $category->id);
+        $cateup= Categorie::where('id', $category->id);
 
         //avans de lancer on pose une condition
         if($request->namecate == $category->namecate){
@@ -127,12 +127,12 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\Categorie  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(Categorie $category)
     {
-        Category::destroy($category->id);
+        Categorie::destroy($category->id);
         return redirect()->route('listecate');
     }
 
@@ -140,7 +140,7 @@ class CategoryController extends Controller
     public function sofderestore()
     {
         //afficher les elements suprimers
-        $catelist = Category::onlyTrashed()->get();
+        $catelist = Categorie::onlyTrashed()->get();
         return view('admpages/category/del', compact('catelist'));
     }
 
@@ -148,7 +148,7 @@ class CategoryController extends Controller
     public function restoredestroy(Request $request)
     {
         //dd($request->id);
-        Category::onlyTrashed()
+        Categorie::onlyTrashed()
             ->where('id', $request->id)
             ->restore();
         return redirect()->route('listecate');
@@ -159,7 +159,7 @@ class CategoryController extends Controller
     public function destoredefinitely(Request $request)
     {
         //dd($request->id);
-        Category::onlyTrashed()
+        Categorie::onlyTrashed()
             ->where('id', $request->id)
             ->forceDelete();
         return redirect()->route('listecate');

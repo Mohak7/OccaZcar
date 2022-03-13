@@ -32,7 +32,7 @@ return array(
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Models\\Annonce' => $baseDir . '/app/Models/Annonce.php',
     'App\\Models\\Carburant' => $baseDir . '/app/Models/Carburant.php',
-    'App\\Models\\Category' => $baseDir . '/app/Models/Category.php',
+    'App\\Models\\Categorie' => $baseDir . '/app/Models/Categorie.php',
     'App\\Models\\Couleur' => $baseDir . '/app/Models/Couleur.php',
     'App\\Models\\Loginadmin' => $baseDir . '/app/Models/Loginadmin.php',
     'App\\Models\\Marque' => $baseDir . '/app/Models/Marque.php',

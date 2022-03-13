@@ -7,12 +7,7 @@
 
 
     <div class="row tm-content-row">
-
-
-
-
     <center><h1>OCCAZCAR </h1></center>
-
     </div>
 
 

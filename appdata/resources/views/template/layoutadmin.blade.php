@@ -33,12 +33,12 @@
             <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
         </div>
         <!--logo start-->
-        <a href="index.html" class="logo"><b>DASH<span>IO</span></b></a>
+        <a href="#" class="logo"><b>DASH<span>IO</span></b></a>
         <!--logo end-->
 
         <div class="top-menu">
             <ul class="nav pull-right top-menu">
-                <li><a class="logout" href="login.html">Logout</a></li>
+                <li><a class="logout" href="#">Logout</a></li>
             </ul>
         </div>
     </header>
@@ -51,8 +51,7 @@
         <div id="sidebar" class="nav-collapse ">
             <!-- sidebar menu start-->
             <ul class="sidebar-menu" id="nav-accordion">
-                <p class="centered"><a href="profile.html"><img src="{{asset('massets/img/ui-sam.jpg')}}" class="img-circle" width="80"></a></p>
-                <h5 class="centered">Sam Soffes</h5>
+                <p class="centered"><a href="#"><img src="{{asset('massets/img/ui-sam.jpg')}}" class="img-circle" width="80"></a></p>
                 <li class="mt">
                     <a href="{{route('adminpage')}}">
                         <i class="fa fa-dashboard"></i>

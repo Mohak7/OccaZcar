@@ -113,7 +113,7 @@ Route::delete('/destoremarque/{id}','App\Http\Controllers\MarqueController@desto
 
 
 //debut les routes de categorie
-Route::resource('category', 'App\Http\Controllers\CategoryController')->names([
+Route::resource('categorie', 'App\Http\Controllers\CategoryController')->names([
     'index'=> 'listecate',
     'show'=> 'showcate',
     'create'=> 'newcate',

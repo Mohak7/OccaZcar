@@ -26,6 +26,8 @@
 
 
    </head>
+
+
    <body>
    <!-- HEADER -->
    <header>
@@ -45,8 +47,9 @@
                            </a>
                        </div>
                    </div>
+                </header>
                    <!-- /LOGO -->
-
+   <?php /*
                    <!-- SEARCH BAR -->
                    <div class="col-md-6">
                        <div class="header-search">
@@ -89,7 +92,7 @@
        <!-- /MAIN HEADER -->
    </header>
    <!-- /HEADER -->
-
+*/ ?>
    <!-- NAVIGATION -->
    <nav id="navigation">
        <!-- container -->
@@ -99,13 +102,8 @@
                <!-- NAV -->
                <ul class="main-nav nav navbar-nav">
                    <li><a href="{{route('adminpage')}}" class="btn-danger">Dash</a></li>
-                   <li><a href="{{route('homepage')}}">Home</a></li>
-                   <li><a href="{{route('aboutpage')}}">About</a></li>
-
-                   <li><a href="#">voiture</a></li>
-                   <li><a href="#">Camion</a></li>
-                   <li><a href="#">Laptops</a></li>
-
+                   <li><a href="{{route('homepage')}}">Accueil</a></li>
+                   <li><a href="#">Recherche</a></li>
                    <li><a href="{{route('contactpage')}}">Contact</a></li>
                </ul>
                <!-- /NAV -->

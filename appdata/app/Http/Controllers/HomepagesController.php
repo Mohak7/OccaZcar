@@ -2,20 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
+use App\Models\Categorie;
 use App\Models\Photoproduits;
-use App\Models\Price;
+use App\Models\Vehicule;
 use Illuminate\Http\Request;
 
 class HomepagesController extends Controller
 {
     //randue de la vue de l'index
     public function index(){
-        $catelist = Category::where('status',1)->get();
-        $list = Price::where('status',1)
-                        ->get();
-        return view('publicpages\homepage',compact('catelist','list'));
+      //  $catelist = Categorie::where('name_cat','ok')->get();
+        /* $list = Vehicule::all();
+        Price::where('status',1)
+                        ->get();,compact('list')*/
+
+
+
+        return view('publicpages\homepage');
     }
+
 
 
     //afficher les details de la voiture
