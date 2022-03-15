@@ -180,7 +180,7 @@ Route::delete('/destoreannonce/{id}','App\Http\Controllers\AnnonceController@des
 
 
 //debut les routes de produits
-Route::resource('produits', 'App\Http\Controllers\ProduitsController')->names([
+Route::resource('vehicule', 'App\Http\Controllers\VehiculeController')->names([
     'index'=> 'listeprod',
     'show'=> 'showprod',
     'create'=> 'newprod',

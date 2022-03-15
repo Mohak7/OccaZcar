@@ -14,7 +14,11 @@ class VehiculeController extends Controller
      */
     public function index()
     {
-        //
+        //$catelist = Produits::orderBy('updated_at', 'desc')->get();
+        $listevh = Vehicule::orderBy('updated_at', 'desc')
+            ->paginate(10);
+
+        return view('admpages/vehicules/liste',compact('listevh'));
     }
 
     /**

@@ -1,6 +1,6 @@
 @extends('template\layoutadmin')
 
-@section('title', 'Produits')
+@section('title', 'Vehicule')
 
 @section('contentadmin')
 
@@ -19,7 +19,7 @@ border-right: 1px solid red;
             <table class="table table-striped table-advance table-hover">
                 <h4>
                     <i class="fa fa-angle-right"></i>
-                    Liste de Produits
+                    Liste de Vehicule
                     <a href="{{route('newprod')}}" class="btn btn-primary btn-sm" title="Nouveau Element">
                         <i class="fa fa-plus-circle"></i>
                     </a>
@@ -29,15 +29,15 @@ border-right: 1px solid red;
                 </h4>
                 <hr>
 
-                {{ $catelist->links('pagination::bootstrap-4') }}
+                {{ $listevh->links('pagination::bootstrap-4') }}
 
 
                 <thead>
                 <tr>
                     <th><i class="fa fa-bullhorn"></i> #</th>
                     <th><i class="fa fa-bullhorn"></i> Images</th>
-                    <th><i class="fa fa-bullhorn"></i> Categorie</th>
-                    <th><i class="fa fa-bullhorn"></i> Marque</th>
+                    <th><i class="fa fa-bullhorn"></i> vehicule</th>
+                    <th><i class="fa fa-bullhorn"></i> Prix</th>
                     <th><i class="fa fa-bookmark"></i> Date</th>
                     <th><i class=" fa fa-edit"></i> Status</th>
                     <th></th>
@@ -47,7 +47,7 @@ border-right: 1px solid red;
 
                 <tbody>
 
-                @forelse ($catelist as $liste)
+                @forelse ($listevh as $liste)
                     <tr>
 
                         <td>{{ $liste->id }}</td>
@@ -55,11 +55,7 @@ border-right: 1px solid red;
                         <td>
                             {{--nous allons creer une condition pour verifier si il es nulle ou pas-- et limit sur 1--}}
 
-                            @forelse (photovoiturehelp($liste->id,'1') as $photos)
-                                <img src="{{asset('assets/images/'.$photos->photoname)}}" class="img-thumbnail" width="50">
-                            @empty
-                                <img src="{{asset('assets/images/default.jpeg')}}" class="img-circle" width="50">
-                            @endforelse
+                           fffffffimages
 
                             {{--@forelse ($photovoiture($liste->id,'1') as $photos)--}}
                             {{--<img src="{{asset('assets/images/'.$photos->photoname)}}" class="img-thumbnail" width="50">--}}
@@ -71,7 +67,7 @@ border-right: 1px solid red;
 
                         <td>
                             <a href="#" class="btn btn-sm btn-default" data-toggle="modal" data-target="#myModal_{{$liste->id}}">
-                                  {{$liste->Categorieviews->namecate}}
+                                  {{--{{$liste->namecate}}--}}categorie
                             </a>
                             {{--{{$liste->id}}--}}
 
@@ -83,7 +79,7 @@ border-right: 1px solid red;
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                            <h4 class="modal-title" id="myModalLabel">{{$liste->Categorieviews->namecate}}</h4>
+                                            <h4 class="modal-title" id="myModalLabel"> Categorie nom </h4>
                                         </div>
                                         <div class="modal-body">
 
@@ -99,28 +95,30 @@ border-right: 1px solid red;
                                                     {{--@endforelse --}}
                                                     {{----}}
 
-                                                    @forelse (photovoiturehelp($liste->id) as $photos)
-                                                        <img src="{{asset('assets/images/'.$photos->photoname)}}" class="img-thumbnail" width="100">
-                                                    @empty
-                                                        <img src="{{asset('assets/images/default.jpeg')}}" class="img-circle" width="100">
-                                                    @endforelse
+                                                    {{--@forelse (photovoiturehelp($liste->id) as $photos)--}}
+                                                        {{--<img src="{{asset('assets/images/'.$photos->photoname)}}" class="img-thumbnail" width="100">--}}
+                                                    {{--@empty--}}
+                                                        {{--<img src="{{asset('assets/images/default.jpeg')}}" class="img-circle" width="100">--}}
+                                                    {{--@endforelse--}}
+
+                                                    photo
                                                 </div>
 
                                                 <div class="col-md-9">
                                                     <p>
-                                                        Marque <span class="badge badgescoloradd">{{$liste->marque}}</span> |
-                                                        Modele <span class="badge badgescoloradd">{{$liste->modele}}</span> |
-                                                        Couleur <span class="badge badgescoloradd" style="background-color:@php echo $liste->couleurvoiture->codecolor @endphp">{{$liste->couleurvoiture->nameprodcolor}}</span>
+                                                        Marque <span class="badge badgescoloradd"> marques </span> |
+                                                        Modele <span class="badge badgescoloradd">modele</span> |
+                                                        Couleur <span class="badge badgescoloradd" style="background-color:@php echo 'red' @endphp"> red</span>
                                                     </p>
 
                                                     <p>
-                                                        Carburant <span class="badge badgescoloradd">{{$liste->carburant}}</span> |
-                                                        Transmission <span class="badge badgescoloradd">{{$liste->transmission}}</span>
+                                                        Carburant <span class="badge badgescoloradd">carburant</span> |
+                                                        Transmission <span class="badge badgescoloradd">transmission</span>
                                                     </p>
 
                                                     <p>
-                                                        Vitesse <span class="badge badgescoloradd">{{$liste->nbrvitesse}}</span> |
-                                                        Moteur <span class="badge badgescoloradd">{{$liste->puissancemonteur}}</span> |
+                                                        Vitesse <span class="badge badgescoloradd">nbrvitesse</span> |
+                                                        Moteur <span class="badge badgescoloradd">puissancemonteur</span> |
                                                     </p>
 
                                                     <p>
@@ -215,7 +213,7 @@ border-right: 1px solid red;
                 </tbody>
             </table>
 
-            {{ $catelist->links('pagination::bootstrap-4') }}
+            {{ $listevh->links('pagination::bootstrap-4') }}
         </div>
         <!-- /content-panel -->
     </div>

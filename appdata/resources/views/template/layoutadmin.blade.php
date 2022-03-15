@@ -157,7 +157,7 @@
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-desktop"></i>
-                        <span>Produits</span>
+                        <span>Vehicule</span>
                     </a>
                     <ul class="sub">
                         <li><a href="{{route('listeprod')}}">Liste</a></li>

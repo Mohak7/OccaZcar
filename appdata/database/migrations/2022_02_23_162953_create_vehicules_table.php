@@ -15,6 +15,19 @@ class CreateVehiculesTable extends Migration
     {
         Schema::create('vehicules', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('annonce_id')->nullable()->constrained();
+            $table->foreignId('modelecar_id')->nullable()->constrained();
+            $table->foreignId('couleur_id')->nullable()->constrained();
+            $table->foreignId('transmission_id')->nullable()->constrained();
+            $table->foreignId('carburant_id')->nullable()->constrained();
+            $table->char('kilomettre', 250);
+            $table->char('annee', 250);
+            $table->float('prix', 20, 2);
+            $table->longText('description');
+            $table->longText('first_proprio');
+
+            $table->integer('status')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -26,6 +39,7 @@ class CreateVehiculesTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('vehicules');
     }
 }
