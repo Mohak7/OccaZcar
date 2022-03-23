@@ -11,6 +11,16 @@ table.table thead {
 border-left: 1px solid red;
 border-right: 1px solid red;
 }
+
+/*Pour masques les modification global des table*/
+#tablenone.table tbody tr td,
+#tablenone.table thead tr th,
+#tablenone.table thead {
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+    /*background-color: red;*/
+    font-weight: bold;
+}
 </style>
 
 
@@ -66,9 +76,60 @@ border-right: 1px solid red;
                         </td>
 
                         <td>
-                            <a href="#" class="btn btn-sm btn-default" data-toggle="modal" data-target="#myModal_{{$liste->id}}">
-                                  {{--{{$liste->namecate}}--}}categorie
-                            </a>
+                            <table class="table table-hover" id="tablenone">
+                                <tr class="warning">
+                                    <td>
+                                        {{$liste->category_id}}==
+                                        {{$liste->cateviewone->id}}==
+                                        {{$liste->cateviewone->namecate}}
+
+                                    </td>
+                                    <td>
+                                        {{$liste->modelecar_id}}==
+                                        {{$liste->modelecaroneview->id}}==
+                                        {{$liste->modelecaroneview->nom_modele}}==
+                                        {{$liste->modelecaroneview->marque_id}}==
+                                    </td>
+                                    <td>
+                                        {{$liste->annonce_id}}===
+                                        {{$liste->annonceoneview->id}}===
+                                        {{$liste->annonceoneview->codeannonce}}
+                                    </td>
+                                </tr>
+                                <tr class="info">
+                                    <td>{{$liste->annee}}</td>
+
+                                    <td>
+                                        {{$liste->couleur_id}}===
+                                        {{$liste->couleuroneview->id}}===
+                                        {{$liste->couleuroneview->name_color}}===
+                                        {{$liste->couleuroneview->code_color}}===
+                                    </td>
+
+                                    <td>
+                                        {{$liste->transmission_id}}==
+                                        {{$liste->transmission_id}}==
+                                        {{$liste->transmission_id}}==
+                                        {{$liste->transmission_id}}==
+                                    </td>
+                                </tr>
+                                <tr class="warning">
+                                    <td>{{$liste->carburant_id}}</td>
+                                    <td>{{$liste->Kilomettre}}</td>
+                                    <td>
+                                        <a href="#" class="btn btn-sm btn-default" data-toggle="modal" data-target="#myModal_{{$liste->id}}">More..</a>
+                                    </td>
+                                </tr>
+
+                            </table>
+
+
+
+
+
+
+
+
                             {{--{{$liste->id}}--}}
 
                             {{--LEs Models des elements --}}
@@ -106,26 +167,30 @@ border-right: 1px solid red;
 
                                                 <div class="col-md-9">
                                                     <p>
-                                                        Marque <span class="badge badgescoloradd"> marques </span> |
+                                                        Categorie <span class="badge badgescoloradd"> Categorie </span> |
+                                                        Marque <span class="badge badgescoloradd"> Marque </span> |
                                                         Modele <span class="badge badgescoloradd">modele</span> |
-                                                        Couleur <span class="badge badgescoloradd" style="background-color:@php echo 'red' @endphp"> red</span>
+                                                        No Annonce <span class="badge badgescoloradd" style="background-color:@php echo 'red' @endphp"> red</span>
                                                     </p>
 
                                                     <p>
-                                                        Carburant <span class="badge badgescoloradd">carburant</span> |
+                                                        Annee <span class="badge badgescoloradd">Annee</span> |
+                                                        Couleur <span class="badge badgescoloradd">Couleur</span> |
                                                         Transmission <span class="badge badgescoloradd">transmission</span>
                                                     </p>
 
                                                     <p>
                                                         Vitesse <span class="badge badgescoloradd">nbrvitesse</span> |
-                                                        Moteur <span class="badge badgescoloradd">puissancemonteur</span> |
+                                                        Carburant <span class="badge badgescoloradd">Carburant</span> |
+                                                        Kilomettre <span class="badge badgescoloradd">Kilomettre</span> |
                                                     </p>
 
                                                     <p>
-                                                        Cynlindre <span class="badge badgescoloradd">{{$liste->nbrecylindre}}</span> |
-                                                        Portiere <span class="badge badgescoloradd">{{$liste->nbrportiereno}}</span> |
-                                                        Siege <span class="badge badgescoloradd">{{$liste->nbrsierge}}</span> |
-                                                        Annee <span class="badge badgescoloradd">{{$liste->annecar}}</span>
+                                                        first_proprio <span class="badge badgescoloradd">first_proprio</span>
+                                                    </p>
+                                                    <p>
+                                                        Description
+                                                        <textarea class="form-control" rows="3">Description</textarea>
                                                     </p>
                                                 </div>
 
@@ -157,7 +222,10 @@ border-right: 1px solid red;
 
 
                         </td>
-                        <td>{{$liste->marque}}</td>
+                        <td>
+                            {{--Ce fonction exite que dans le fasade de laravel pour convertir les nombres en Monnaie format--}}
+                            <span class="fa fa-eur"></span> {{ number_format($liste->prix, 2, ',', '.') }}
+                        </td>
                         <td>{{$liste->created_at}}</td>
                         <td>
                             @if ($liste->status == 1)

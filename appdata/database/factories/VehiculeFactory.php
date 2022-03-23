@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Annonce;
 use App\Models\Carburant;
+use App\Models\Category;
 use App\Models\Couleur;
 use App\Models\Modelecar;
 use App\Models\Transmission;
@@ -19,6 +20,7 @@ class VehiculeFactory extends Factory
     public function definition()
     {
         return [
+        'category_id' => Category::all()->random(),
         'annonce_id' => Annonce::all()->random(),
         'modelecar_id' => Modelecar::all()->random(),
         'couleur_id' => Couleur::all()->random(),

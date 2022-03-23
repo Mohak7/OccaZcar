@@ -13,4 +13,15 @@ class Category extends Model
     protected $guarded = [];
     use SoftDeletes;
 
+
+
+
+
+    public function vehiculecatemany()
+    {
+        return $this->hasMany(Vehicule::class);
+    }
+
+
+
 }
