@@ -16,12 +16,16 @@ class VehiculeController extends Controller
     {
         //$catelist = Produits::orderBy('updated_at', 'desc')->get();
         $listevh = Vehicule::with('cateviewone')
-                            ->with('modelecaroneview')
-                            ->with('annonceoneview')
-                            ->with('couleuroneview')
+                            ->with('modelecarviewone')
+                            ->with('annonceviewone')
+                            ->with('couleurviewone')
+                            ->with('transmissionviewone')
+                            ->with('carburantviewone')
                             ->orderBy('updated_at', 'desc')
-            ->paginate(10);
+                            ->paginate(10);
 
+        //dd(marquevoiturehelp('27'));
+        
         return view('admpages/vehicules/liste',compact('listevh'));
     }
 

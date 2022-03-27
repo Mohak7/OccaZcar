@@ -20,7 +20,7 @@ class Modelecar extends Model
      */
     public function marquesviews()
     {
-        return $this->belongsTo(Marque::class,'marques_id');
+        return $this->belongsTo(Marque::class,'marque_id');
     }
 
 

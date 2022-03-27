@@ -9,12 +9,15 @@ use Illuminate\Http\Request;
 
 class HomepagesController extends Controller
 {
+    public function categorylist(){
+        $catelist = Category::where('status',1)->get();
+        return $catelist;
+    }
     //randue de la vue de l'index
     public function index(){
-        $catelist = Category::where('status',1)->get();
-        $list = Price::where('status',1)
-                        ->get();
-        return view('publicpages\homepage',compact('catelist','list'));
+        $catelist = $this->categorylist();
+        // $list = Price::where('status',1)->get();
+        return view('publicpages\homepage',compact('catelist'));
     }
 
 
@@ -27,12 +30,14 @@ class HomepagesController extends Controller
 
     //randu de la vue de about
     public function about(){
-        return view('publicpages\aboutpage');
+        $catelist = $this->categorylist();
+        return view('publicpages\aboutpage' ,compact('catelist'));
     }
 
     //randu de la vue de contact
     public function contact(){
-        return view('publicpages\contactpage');
+        $catelist = $this->categorylist();
+        return view('publicpages\contactpage' ,compact('catelist'));
     }
 
 

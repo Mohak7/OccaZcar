@@ -86,35 +86,38 @@ border-right: 1px solid red;
                                     </td>
                                     <td>
                                         {{$liste->modelecar_id}}==
-                                        {{$liste->modelecaroneview->id}}==
-                                        {{$liste->modelecaroneview->nom_modele}}==
-                                        {{$liste->modelecaroneview->marque_id}}==
+                                        {{$liste->modelecarviewone->id}}==
+                                        {{$liste->modelecarviewone->nom_modele}}==
+                                        {{$liste->modelecarviewone->marque_id}}
+
                                     </td>
                                     <td>
                                         {{$liste->annonce_id}}===
-                                        {{$liste->annonceoneview->id}}===
-                                        {{$liste->annonceoneview->codeannonce}}
+                                        {{$liste->annonceviewone->id}}===
+                                        {{$liste->annonceviewone->codeannonce}}
                                     </td>
                                 </tr>
                                 <tr class="info">
                                     <td>{{$liste->annee}}</td>
-
                                     <td>
-                                        {{$liste->couleur_id}}===
-                                        {{$liste->couleuroneview->id}}===
-                                        {{$liste->couleuroneview->name_color}}===
-                                        {{$liste->couleuroneview->code_color}}===
+                                        {{$liste->couleur_id}}====
+                                        {{$liste->couleurviewone->id}}===
+                                        {{$liste->couleurviewone->code_color}}==
+                                        {{$liste->couleurviewone->name_color}}
                                     </td>
-
                                     <td>
-                                        {{$liste->transmission_id}}==
-                                        {{$liste->transmission_id}}==
-                                        {{$liste->transmission_id}}==
-                                        {{$liste->transmission_id}}==
+                                        {{$liste->transmission_id}}===
+                                        {{$liste->transmissionviewone->id}}===
+                                        {{$liste->transmissionviewone->nom_tranz}}
                                     </td>
                                 </tr>
                                 <tr class="warning">
-                                    <td>{{$liste->carburant_id}}</td>
+                                    <td>
+                                        {{$liste->carburant_id}}==
+                                        {{$liste->carburantviewone->id}}==
+                                        {{$liste->carburantviewone->nom}}
+
+                                    </td>
                                     <td>{{$liste->Kilomettre}}</td>
                                     <td>
                                         <a href="#" class="btn btn-sm btn-default" data-toggle="modal" data-target="#myModal_{{$liste->id}}">More..</a>

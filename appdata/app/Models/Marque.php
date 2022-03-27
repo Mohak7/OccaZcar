@@ -19,6 +19,13 @@ class Marque extends Model
         return $this->hasMany(Modelecar::class);
     }
 
+    //ce commanade passe par le helper pour afficher les marques selon l'id ce commande ce fait en un seule sens
+    //en claire on utilise le one to one 
+    public function scopeMarqueview($query, $id){
+        return $query->where('id',$id)
+                    ->get();
+    }
+
 
 
 }

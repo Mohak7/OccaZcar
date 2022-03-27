@@ -52,7 +52,7 @@ border-right: 1px solid red;
 
                         <td>{{$liste->nom_modele}} </td>
                         <td>
-                            {{--{{$liste->marques_id}} ==--}}
+                            {{--$liste->marque_id--}} 
                             {{$liste->marquesviews->nom_marque}}
                         </td>
 

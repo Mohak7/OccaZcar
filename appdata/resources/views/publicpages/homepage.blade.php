@@ -54,32 +54,69 @@
                     <!-- /product -->
 
 
-                    @forelse ($list as $prod)
+                    
                         <!-- product -->
                             <div class="product col-md-3">
                                 <div class="product-img">
-                                    @forelse (photovoiturehelp($prod->produits_id,1) as $img)
-                                        <img src="{{asset('assets/images/'.$img->photoname)}}" width="100%">
-                                    @empty
                                         <img src="{{asset('assets/img/images (12).jpeg')}}" width="100%">
-                                    @endforelse
                                 </div>
                                 <div class="product-body">
                                     <p class="product-category">
-                                        {{$prod->prodview->Categorieviews->namecate}} {{--Maintenant on peut afficher le nom de la categorie--}}
+                                        Category{{--Maintenant on peut afficher le nom de la categorie--}}
                                     </p>
-                                    <h3 class="product-name"><a href="#">{{$prod->prodview->marque}} | {{$prod->prodview->modele}} | {{$prod->prodview->couleurvoiture->nameprodcolor}}</a></h3>
-                                    <h4 class="product-price">${{$prod->amount}}</h4>
+                                    <h3 class="product-name"><a href="#">Marques | Modele | Couleur</a></h3>
+                                    <h4 class="product-price">$ 33234.09</h4>
                                 </div>
                                 <div class="add-to-cart">
-                                    <a href="{{route('cardetailpage',$prod->id)}}" class="add-to-cart-btn">Details</a>
+                                    <a href="#" class="add-to-cart-btn">Details</a>
                                 </div>
                             </div>
                             <!-- /product -->
-                    @empty
-                        <p>No Produits Price</p>
-                    @endforelse
+                   
 
+
+
+
+                            
+                    
+                        <!-- product -->
+                        <div class="product col-md-3">
+                                <div class="product-img">
+                                        <img src="{{asset('assets/img/images (12).jpeg')}}" width="100%">
+                                </div>
+                                <div class="product-body">
+                                    <p class="product-category">
+                                        Category{{--Maintenant on peut afficher le nom de la categorie--}}
+                                    </p>
+                                    <h3 class="product-name"><a href="#">Marques | Modele | Couleur</a></h3>
+                                    <h4 class="product-price">$ 33234.09</h4>
+                                </div>
+                                <div class="add-to-cart">
+                                    <a href="#" class="add-to-cart-btn">Details</a>
+                                </div>
+                            </div>
+                            <!-- /product -->
+
+
+                            
+                    
+                        <!-- product -->
+                        <div class="product col-md-3">
+                                <div class="product-img">
+                                        <img src="{{asset('assets/img/images (12).jpeg')}}" width="100%">
+                                </div>
+                                <div class="product-body">
+                                    <p class="product-category">
+                                        Category{{--Maintenant on peut afficher le nom de la categorie--}}
+                                    </p>
+                                    <h3 class="product-name"><a href="#">Marques | Modele | Couleur</a></h3>
+                                    <h4 class="product-price">$ 33234.09</h4>
+                                </div>
+                                <div class="add-to-cart">
+                                    <a href="#" class="add-to-cart-btn">Details</a>
+                                </div>
+                            </div>
+                            <!-- /product -->
                 </div>
             </div>
             <!-- Products tab & slick -->

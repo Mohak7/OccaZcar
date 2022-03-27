@@ -19,20 +19,33 @@ class Vehicule extends Model
         return $this->belongsTo(Category::class,'category_id');
     }
 
-    public function modelecaroneview()
+
+    public function modelecarviewone()
     {
         return $this->belongsTo(Modelecar::class,'modelecar_id');
     }
 
-    public function annonceoneview()
+    public function annonceviewone()
     {
         return $this->belongsTo(Annonce::class,'annonce_id');
     }
 
-    public function couleuroneview()
+    public function couleurviewone()
     {
         return $this->belongsTo(Couleur::class,'couleur_id');
     }
+
+    
+    public function transmissionviewone()
+    {
+        return $this->belongsTo(Transmission::class,'transmission_id');
+    }
+
+    public function carburantviewone()
+    {
+        return $this->belongsTo(Carburant::class,'carburant_id');
+    }
+
 
 
 

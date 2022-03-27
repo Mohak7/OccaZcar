@@ -14,6 +14,12 @@ if(!function_exists('photovoiturehelp')){
 }
 
 
+if(!function_exists('marquevoiturehelp')){
+    function marquevoiturehelp($id){
+        return  App\Models\Marque::Marqueview($id);
+    }
+}
+
 
 
 

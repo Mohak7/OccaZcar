@@ -17,6 +17,7 @@ class ModelecarController extends Controller
         $modele = Modelecar::with('marquesviews')
                 ->orderBy('updated_at', 'desc')->paginate(10);
 
+                //dd($modele);
         return view ('admpages/modeles/liste',compact('modele'));
     }
 
